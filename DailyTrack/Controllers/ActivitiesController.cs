@@ -8,7 +8,6 @@ using System.Web;
 using System.Web.Mvc;
 using DailyTrack.Models;
 using DailyTrack.Repos;
-using PagedList;
 
 
 namespace DailyTrack.Controllers
@@ -19,21 +18,21 @@ namespace DailyTrack.Controllers
 
         public ActivitiesController()
         {
-         this.ActivityRepository = new ActivityRepository (new DailyTrackDbContext());        
+            this.ActivityRepository = new ActivityRepository(new DailyTrackDbContext());
         }
 
-         // GET: Activities
+        // GET: Activities
 
-       public ActionResult Index()
+        public ActionResult Index()
         {
-         //   return View(ActivityRepository.ToList());
+            return View(ActivityRepository.GetActivities());
         }
 
         // GET: Activities/Details/5
         public ActionResult Details(int? id)
         {
             Activity activity = ActivityRepository.getActivityById(id);
-            return View(activity);         
+            return View(activity);
         }
 
         // GET: Activities/Create
@@ -54,16 +53,16 @@ namespace DailyTrack.Controllers
             {
                 ActivityRepository.insertActivity(activity);
                 ActivityRepository.Save();
-               return RedirectToAction("Index");
+                return RedirectToAction("Index");
             }
             return View(activity);
         }
 
-private ActionResult RedirectToAction(char p)
-{
- 	throw new NotImplementedException();
-}
-        
+        private ActionResult RedirectToAction(char p)
+        {
+            throw new NotImplementedException();
+        }
+
 
         // GET: Activities/Edit/5
         public ActionResult Edit(int? id)
@@ -107,11 +106,6 @@ private ActionResult RedirectToAction(char p)
         // POST: Activities/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-   /*     public ActionResult DeleteConfirmed(int id)
-        {
-          
-        }*/
-
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -120,8 +114,8 @@ private ActionResult RedirectToAction(char p)
             }
             base.Dispose(disposing);
         }
-    
-public  ActivityRepository ActivityRepository { get; set; }
-public Activity activity { get; set; }
+
+        public ActivityRepository ActivityRepository { get; set; }
+        public Activity activity { get; set; }
     }
 }
