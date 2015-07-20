@@ -31,7 +31,7 @@ namespace DailyTrack.Controllers
         // GET: Activities/Details/5
         public ActionResult Details(int? id)
         {
-            Activity activity = ActivityRepository.getActivityById(id);
+            Activity activity = ActivityRepository.GetActivityById(id);
             return View(activity);
         }
 
@@ -51,7 +51,7 @@ namespace DailyTrack.Controllers
         {
             if (ModelState.IsValid)
             {
-                ActivityRepository.insertActivity(activity);
+                ActivityRepository.InsertActivity(activity);
                 ActivityRepository.Save();
                 return RedirectToAction("Index");
             }
@@ -67,7 +67,7 @@ namespace DailyTrack.Controllers
         // GET: Activities/Edit/5
         public ActionResult Edit(int? id)
         {
-            Activity activity = ActivityRepository.getActivityById(id);
+            Activity activity = ActivityRepository.GetActivityById(id);
             return View(activity);
         }
 
@@ -80,7 +80,7 @@ namespace DailyTrack.Controllers
         {
             if (ModelState.IsValid)
             {
-                ActivityRepository.updateActivity(activity);
+                ActivityRepository.UpdateActivity(activity);
                 ActivityRepository.Save();
                 return RedirectToAction("Index");
             }
@@ -94,7 +94,7 @@ namespace DailyTrack.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Activity activity = ActivityRepository.getActivityById(id);
+            Activity activity = ActivityRepository.GetActivityById(id);
             ActivityRepository.DeleteActivity(id);
             ActivityRepository.Save();
             {

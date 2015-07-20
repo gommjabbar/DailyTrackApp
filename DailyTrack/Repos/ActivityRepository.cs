@@ -7,7 +7,7 @@ using DailyTrack.Models;
 
 namespace DailyTrack.Repos
 {
-   public class ActivityRepository : IActivityRepository, IDisposable
+   public class ActivityRepository :  IDisposable, DailyTrack.Repos.IActivityRepository
     {
          private DailyTrackDbContext context;
 
@@ -22,13 +22,13 @@ namespace DailyTrack.Repos
              return context.Activities.ToList();
          }
 
-         public Activity getActivityById(int? id)
+         public Activity GetActivityById(int? id)
          {
              return context.Activities.Find(id);
          }
 
 
-         public void insertActivity(Activity activity)
+         public void InsertActivity(Activity activity)
          {
              context.Activities.Add(activity);
          }
@@ -40,7 +40,7 @@ namespace DailyTrack.Repos
          }
 
 
-         public void updateActivity(Activity activity)
+         public void UpdateActivity(Activity activity)
          {
              context.Entry(activity).State = System.Data.Entity.EntityState.Modified;
 
