@@ -7,15 +7,22 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using DailyTrack.Models;
+using DailyTrack.Repos;
 
 namespace DailyTrack.Controllers
 {
     public class ActivitiesController : Controller
     {
-        private DailyTrackDbContext db = new DailyTrackDbContext();
+       // private DailyTrackDbContext db = new DailyTrackDbContext();
 
-        // GET: Activities
-        public ActionResult Index()
+        public ActivitiesController(){
+
+         this.ActivityRepository = new ActivityRepository(new )
+        
+        }
+         // GET: Activities
+
+       public ActionResult Index()
         {
             return View(db.Activities.ToList());
         }
@@ -46,17 +53,8 @@ namespace DailyTrack.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Activity activity)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Activities.Add(activity);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
 
-            return View(activity);
-        }
+        ActivityRepository.Insert(activity);
 
         // GET: Activities/Edit/5
         public ActionResult Edit(int? id)

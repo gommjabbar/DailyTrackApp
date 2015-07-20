@@ -17,5 +17,26 @@ namespace DailyTrack.Models
 
         public System.Data.Entity.DbSet<DailyTrack.Models.Activity> Activities { get; set; }
 
+        public override int SaveChanges()
+        {
+            DateTimeOffset saveTime = DateTimeOffset.Now;
+
+            foreach (var entry in this.ChangeTracker.Entries().Where(e => (e.State == EntityState.Added || e.State == EntityState.Modified)))
+            {
+                switch (entry.State)
+                {
+                    case EntityState.Added:
+                        entry.Property("CreateDate").CurrentValue = saveTime;
+                        break;
+                    case EntityState.Modified:
+                        entry.Property("UpdateDate").CurrentValue = saveTime;
+                        break;
+                }
+            }
+
+            return base.SaveChanges();
+
+        }
+
     }
 }
