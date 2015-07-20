@@ -1,5 +1,7 @@
 using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 using System.Data.Entity;
+using System.Linq;
 
 namespace DailyTrack.Models
 {
@@ -19,7 +21,7 @@ namespace DailyTrack.Models
 
         public override int SaveChanges()
         {
-            DateTimeOffset saveTime = DateTimeOffset.Now;
+            DateTime saveTime = DateTime.Now;
 
             foreach (var entry in this.ChangeTracker.Entries().Where(e => (e.State == EntityState.Added || e.State == EntityState.Modified)))
             {

@@ -7,7 +7,7 @@ using DailyTrack.Models;
 
 namespace DailyTrack.Repos
 {
-    public class ActivityRepository
+   public class ActivityRepository : IActivityRepository, IDisposable
     {
          private DailyTrackDbContext context;
 
@@ -16,6 +16,11 @@ namespace DailyTrack.Repos
              this.context = context;
          }
 
+
+         public IEnumerable<Activity> GetActivities()
+         {
+             return context.Activities.ToList();
+         }
 
          public Activity getActivityById(int? id)
          {
@@ -49,7 +54,7 @@ namespace DailyTrack.Repos
 
          protected virtual void Dispose(bool disposing)
          {
-             if (!this.disposed) ;
+             if (!this.disposed) 
              {
                  if (disposing)
                  {

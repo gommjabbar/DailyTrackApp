@@ -8,12 +8,14 @@ using System.Web;
 using System.Web.Mvc;
 using DailyTrack.Models;
 using DailyTrack.Repos;
+using PagedList;
+
 
 namespace DailyTrack.Controllers
 {
     public class ActivitiesController : Controller
     {
-       // private DailyTrackDbContext db = new DailyTrackDbContext();
+        private IActivityRepository activityRepository;
 
         public ActivitiesController()
         {
@@ -24,7 +26,7 @@ namespace DailyTrack.Controllers
 
        public ActionResult Index()
         {
-            return View(db.Activities.ToList());
+         //   return View(ActivityRepository.ToList());
         }
 
         // GET: Activities/Details/5
