@@ -17,7 +17,7 @@ namespace DailyTrack.Repos
          }
 
 
-         public Activity getActivityById(int id)
+         public Activity getActivityById(int? id)
          {
              return context.Activities.Find(id);
          }
@@ -28,9 +28,9 @@ namespace DailyTrack.Repos
              context.Activities.Add(activity);
          }
 
-         public void DeleteActivity(int activityId)
+         public void DeleteActivity(int? Id)
          {
-             Activity activity = context.Activities.Find(activityId);
+             Activity activity = context.Activities.Find(Id);
              context.Activities.Remove(activity);
          }
 
@@ -64,7 +64,6 @@ namespace DailyTrack.Repos
              Dispose(true);
              GC.SuppressFinalize(this);
          }
-
 
 
     }

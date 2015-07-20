@@ -15,11 +15,11 @@ namespace DailyTrack.Controllers
     {
        // private DailyTrackDbContext db = new DailyTrackDbContext();
 
-        public ActivitiesController(){
-
-         this.ActivityRepository = new ActivityRepository(new )
-        
+        public ActivitiesController()
+        {
+         this.ActivityRepository = new ActivityRepository (new DailyTrackDbContext());        
         }
+
          // GET: Activities
 
        public ActionResult Index()
@@ -30,16 +30,8 @@ namespace DailyTrack.Controllers
         // GET: Activities/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Activity activity = db.Activities.Find(id);
-            if (activity == null)
-            {
-                return HttpNotFound();
-            }
-            return View(activity);
+            Activity activity = ActivityRepository.getActivityById(id);
+            return View(activity);         
         }
 
         // GET: Activities/Create
@@ -54,20 +46,27 @@ namespace DailyTrack.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
 
-        ActivityRepository.Insert(activity);
+        public ActionResult Create([Bind(Include = "Id,Name,StartTime,EndTime")] Activity activity)
+        {
+            if (ModelState.IsValid)
+            {
+                ActivityRepository.insertActivity(activity);
+                ActivityRepository.Save();
+               return RedirectToAction("Index");
+            }
+            return View(activity);
+        }
+
+private ActionResult RedirectToAction(char p)
+{
+ 	throw new NotImplementedException();
+}
+        
 
         // GET: Activities/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Activity activity = db.Activities.Find(id);
-            if (activity == null)
-            {
-                return HttpNotFound();
-            }
+            Activity activity = ActivityRepository.getActivityById(id);
             return View(activity);
         }
 
@@ -80,8 +79,8 @@ namespace DailyTrack.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(activity).State = EntityState.Modified;
-                db.SaveChanges();
+                ActivityRepository.updateActivity(activity);
+                ActivityRepository.Save();
                 return RedirectToAction("Index");
             }
             return View(activity);
@@ -94,8 +93,9 @@ namespace DailyTrack.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Activity activity = db.Activities.Find(id);
-            if (activity == null)
+            Activity activity = ActivityRepository.getActivityById(id);
+            ActivityRepository.DeleteActivity(id);
+            ActivityRepository.Save();
             {
                 return HttpNotFound();
             }
@@ -105,21 +105,21 @@ namespace DailyTrack.Controllers
         // POST: Activities/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+   /*     public ActionResult DeleteConfirmed(int id)
         {
-            Activity activity = db.Activities.Find(id);
-            db.Activities.Remove(activity);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+          
+        }*/
 
         protected override void Dispose(bool disposing)
         {
             if (disposing)
             {
-                db.Dispose();
+                ActivityRepository.Dispose();
             }
             base.Dispose(disposing);
         }
+    
+public  ActivityRepository ActivityRepository { get; set; }
+public Activity activity { get; set; }
     }
 }
