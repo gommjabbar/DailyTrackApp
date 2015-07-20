@@ -7,13 +7,13 @@ namespace DailyTrack.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.1-30610")]
-    public sealed partial class Activity : IMigrationMetadata
+    public sealed partial class NullableActivityProperties : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Activity));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(NullableActivityProperties));
         
         string IMigrationMetadata.Id
         {
-            get { return "201507200736499_Activity"; }
+            get { return "201507201000334_NullableActivityProperties"; }
         }
         
         string IMigrationMetadata.Source

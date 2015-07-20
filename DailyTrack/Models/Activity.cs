@@ -5,9 +5,11 @@ using System.Web;
 
 namespace DailyTrack.Models
 {
-    public class Activity
+    public class Activity : BaseEntity
     {
         public int Id { get; set; }
-        public string Name { get; set; }        
+        public string Name { get; set; }
+        public DateTime? StartTime { get; set; }
+        public DateTime? EndTime { get; set; }
     }
 }

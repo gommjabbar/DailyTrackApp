@@ -211,17 +211,18 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201507200731211_InitialCreate.cs" />
-    <Compile Include="Migrations\201507200731211_InitialCreate.Designer.cs">
-      <DependentUpon>201507200731211_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201507200952333_InitialCreate.cs" />
+    <Compile Include="Migrations\201507200952333_InitialCreate.Designer.cs">
+      <DependentUpon>201507200952333_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201507200736499_Activity.cs" />
-    <Compile Include="Migrations\201507200736499_Activity.Designer.cs">
-      <DependentUpon>201507200736499_Activity.cs</DependentUpon>
+    <Compile Include="Migrations\201507201000334_NullableActivityProperties.cs" />
+    <Compile Include="Migrations\201507201000334_NullableActivityProperties.Designer.cs">
+      <DependentUpon>201507201000334_NullableActivityProperties.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Activity.cs" />
+    <Compile Include="Models\BaseEntity.cs" />
     <Compile Include="Models\DailyTrackDbContext.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -333,11 +334,11 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201507200731211_InitialCreate.resx">
-      <DependentUpon>201507200731211_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201507200952333_InitialCreate.resx">
+      <DependentUpon>201507200952333_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201507200736499_Activity.resx">
-      <DependentUpon>201507200736499_Activity.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201507201000334_NullableActivityProperties.resx">
+      <DependentUpon>201507201000334_NullableActivityProperties.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

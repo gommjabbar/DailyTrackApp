@@ -13,7 +13,7 @@ namespace DailyTrack.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201507200731211_InitialCreate"; }
+            get { return "201507200952333_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

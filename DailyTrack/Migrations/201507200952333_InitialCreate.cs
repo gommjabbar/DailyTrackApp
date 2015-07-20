@@ -8,6 +8,19 @@ namespace DailyTrack.Migrations
         public override void Up()
         {
             CreateTable(
+                "dbo.Activities",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
+                        StartTime = c.DateTime(nullable: false),
+                        EndTime = c.DateTime(nullable: false),
+                        CreateDate = c.DateTime(nullable: false),
+                        UpdateDate = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
                 "dbo.AspNetRoles",
                 c => new
                     {
@@ -95,6 +108,7 @@ namespace DailyTrack.Migrations
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
+            DropTable("dbo.Activities");
         }
     }
 }
