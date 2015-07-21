@@ -29,31 +29,51 @@
             @Html.ActionLink("Delete", "Delete", new { id=item.Id })
         </td>
     </tr>
+
+    <p> Name :<span data-bind="text: Name"></span></p>
+    <p>Name <input data-bind="value: Name" /></p>
+
+    <h2>Activity type</h2>
+    <div data-bind ="template: 'typeATemplate'"></div>
+    <script id="typeATemplate" type="text/html">
+        <ul>
+            {{each(index,typeA)typesA}}
+                <li>${typeA.name}</li>
+            {{/each}}
+        </ul>
+    </script>
+   //<button data-bind="click: addActivity"
 }
 
 </table>
 @section Scripts {
     <script type="text/javascript">
-        var addNewActivity = function() {
-            var name = $('#newActivityName').val();
-            $.ajax({
-                url: "/api/activities",
-                method: "POST",
-                data: {
-                    id:-1,
-                    name: name
-                }
-            }).done(function (data) {
-                alert(data);
-            })
-        }
 
-        $.ajax({
-            url: "/api/activities",
-            method: "GET",
-        }).done(function (data) {
-            alert(data.length);
-        })
+        function typeA(name) {
+            return {
+                name: ko.observable(name)
+            };
+        }
+       // var addNewActivity = function() {
+         //   var name = $('#newActivityName').val();
+           // $.ajax({
+             //   url: "/api/activities",
+               // method: "POST",
+                //data: {
+                  //  id:-1,
+                    //name: name
+                //}
+            //}).done(function (data) {
+              //  alert(data);
+           // })
+        //}
+
+        //$.ajax({
+          //  url: "/api/activities",
+            //method: "GET",
+        //}).done(function (data) {
+            //alert(data.length);
+        //})
 
         //var test = {
         //    a: "test",
@@ -63,5 +83,11 @@
         //    }
         //};
         //test['c'](function () { alert('test') });
+
+        var viewModel = {
+            Name: ko.observable("Shopping"),
+            typesA: ko.observableArray([new typeA("Study"),new typeA("Phisical")])
+        };
+        ko.applyBindings(viewModel);
     </script>
 }
