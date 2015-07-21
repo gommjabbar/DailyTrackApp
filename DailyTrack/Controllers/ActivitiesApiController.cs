@@ -26,6 +26,13 @@ namespace DailyTrack.Controllers
             return activityRepository.GetActivities();
         }
 
+        [HttpPut]
+        [Route("{id:int}/complete")]
+        public IEnumerable<Activity> CompletActivity(int id)
+        {
+            return activityRepository.GetActivities();
+        }
+
         [HttpPost]
         [Route("")]
         public bool InsertActivity(Activity activity)

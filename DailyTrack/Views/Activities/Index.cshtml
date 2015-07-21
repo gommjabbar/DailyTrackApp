@@ -16,6 +16,7 @@
     <table>
         <thead>
             <tr>
+                <th>Completed</th>
                 <th>Activity</th>
                 <th>Type</th>
                 <th>StartActivity</th>
@@ -25,20 +26,26 @@
        
         <tbody data-bind="foreach: Activities">
             <tr>
+                <td><input type="checkbox" data-bind="checked: Completed" /> </td>
                 <td data-bind="text: name"></td>
                 <td data-bind="text: ActivityType().nameActivityType"></td>
-                <td data-bind="text: ActivityType().start"></td>
+                <td data-bind="text: createDate"></td>
             </tr>
         </tbody>
     </table>
 @section Scripts {
     <script type="text/javascript">
 
-        function Activity(name, initialType) {
+        function Activity(data, initialType) {
             var self = this;
-            self.name = name;
+            self.Completed = ko.observable(false);
+            self.name = data.name || '';
+            self.createDate = data.createDate || '';
             self.ActivityType = ko.observable(initialType);
 
+            self.Completed.subscribe(function (newValue) {
+                alert(self.name + newValue);
+            })
         }
 
         function ActivitiesViewModel() {
@@ -49,10 +56,20 @@
                 { nameActivityType: "groceries",start:5}
             ];
     
-            self.Activities = ko.observableArray([
-                new Activity("Shopping", self.availableTypes[2]),
-                new Activity("Homework", self.availableTypes[0])
-            ]);
+            self.Activities = ko.observableArray();
+
+            self.fnGetActivities = function () {
+                $.ajax({
+                    url: "/api/activities",
+                    method: "GET",
+                }).done(function (data) {
+                    var result = $.map(data, function (item, index) {
+                        return new Activity(item, self.availableTypes[0]);
+                    });
+                    self.Activities(result);
+                })
+            }
+            self.fnGetActivities();
         }
         ko.applyBindings(new ActivitiesViewModel());
 
