@@ -10,55 +10,34 @@
     <input type="text" id="newActivityName" />
     <input type="button" value="Add Activity" onclick="addNewActivity()" />
 </p>
-<table class="table">
-    <tr>
-        <th>
-           @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th></th>
-    </tr>
-    
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-  
+
     <h2>Your daily activities</h2>
 
     <table>
         <thead>
             <tr>
-                <th>Activity</th><th>Type</th><th>StartActivity</th>
+                <th>Activity</th>
+                <th>Type</th>
+                <th>StartActivity</th>
                 <th></th>
             </tr>
         </thead>
        
-        <tbody data-bind="foreach: activities">
+        <tbody data-bind="foreach: Activities">
             <tr>
-                <td dat-bind ="text name:"></td>
-                <td data-bind="text: activityType().nameActivityType"></td>
-                <td data-bind="text: activityType.start"></td>
+                <td data-bind="text: name"></td>
+                <td data-bind="text: ActivityType().nameActivityType"></td>
+                <td data-bind="text: ActivityType().start"></td>
             </tr>
         </tbody>
     </table>
-  
-}
-
-</table>
 @section Scripts {
     <script type="text/javascript">
 
-        function ActivityList(name, initialType) {
+        function Activity(name, initialType) {
             var self = this;
             self.name = name;
-            self.name =ko.oservable(initialType);
+            self.ActivityType = ko.observable(initialType);
 
         }
 
@@ -70,51 +49,12 @@
                 { nameActivityType: "groceries",start:5}
             ];
     
-            self.activities = ko.observableArray([
-                new ActivityList("Shopping", self.availableTypes[2]),
-                new ActivityList("Homework", self.availableTypes[0])
+            self.Activities = ko.observableArray([
+                new Activity("Shopping", self.availableTypes[2]),
+                new Activity("Homework", self.availableTypes[0])
             ]);
         }
-        ko.apllyBindings(new ActivitiesViewModel());
-      //  function typeA(name) {
-            //return {
-              //  name: ko.observable(name)
-           // };
-       // }
-       // var addNewActivity = function() {
-         //   var name = $('#newActivityName').val();
-           // $.ajax({
-             //   url: "/api/activities",
-               // method: "POST",
-                //data: {
-                  //  id:-1,
-                    //name: name
-                //}
-            //}).done(function (data) {
-              //  alert(data);
-           // })
-        //}
+        ko.applyBindings(new ActivitiesViewModel());
 
-        //$.ajax({
-          //  url: "/api/activities",
-            //method: "GET",
-        //}).done(function (data) {
-            //alert(data.length);
-        //})
-
-        //var test = {
-        //    a: "test",
-        //    b: 123,
-        //    c: function (f) {
-        //        f();
-        //    }
-        //};
-        //test['c'](function () { alert('test') });
-
-       // var viewModel = {
-           // Name: ko.observable("Shopping"),
-           // typesA: ko.observableArray([new typeA("Study"),new typeA("Phisical")])
-       // };
-       // ko.applyBindings(viewModel);
     </script>
 }
