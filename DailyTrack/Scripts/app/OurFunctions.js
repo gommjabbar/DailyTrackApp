@@ -36,7 +36,7 @@
                 });
             })
         }
-        self.fnAddNewActivities();
+        //self.fnAddNewActivities;
 
         self.fnGetActivities = function () {
             $.ajax({
