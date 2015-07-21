@@ -11,28 +11,19 @@
     <input type="button" value="Add Activity" onclick="addNewActivity()" />
 </p>
 
-    <h2>Your daily activities</h2>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Completed</th>
-                <th>Activity</th>
-                <th>Type</th>
-                <th>StartActivity</th>
-                <th></th>
-            </tr>
-        </thead>
-       
-        <tbody data-bind="foreach: Activities">
-            <tr>
-                <td><input type="checkbox" data-bind="checked: Completed" /> </td>
-                <td data-bind="text: name"></td>
-                <td data-bind="text: ActivityType().nameActivityType"></td>
-                <td data-bind="text: createDate"></td>
-            </tr>
-        </tbody>
-    </table>
+<h2>Your daily activities</h2>
+<div class="col-lg-8">
+    <div class="col-lg-3 col-md-3">Completed</div>
+    <div class="col-lg-3 col-md-3">Activity</div>
+    <div class="col-lg-3 col-md-3">Type</div>
+    <div class="col-lg-3 col-md-3">StartActivity</div>
+    <div data-bind="foreach: Activities">
+        <div class="col-lg-3"><input type="checkbox" data-bind="checked: Completed" /> </div>
+        <div class="col-lg-3" data-bind="text: name"></div>
+        <div class="col-lg-3" data-bind="text: ActivityType().nameActivityType"></div>
+        <div class="col-lg-3" data-bind="text: createDate"></div>
+    </div>
+</div>
 @section Scripts {
     <script type="text/javascript">
 
