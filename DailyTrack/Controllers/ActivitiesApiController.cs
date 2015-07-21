@@ -19,6 +19,13 @@ namespace DailyTrack.Controllers
             activityRepository = new ActivityRepository(new DailyTrackDbContext());
         }
 
+        [HttpGet]
+        [Route("")]
+        public IEnumerable<Activity> GetAllActivitities()
+        {
+            return activityRepository.GetActivities();
+        }
+
         [HttpPost]
         [Route("")]
         public bool InsertActivity(Activity activity)
