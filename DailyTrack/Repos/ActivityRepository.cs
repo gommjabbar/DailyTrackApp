@@ -45,6 +45,14 @@ namespace DailyTrack.Repos
              context.Entry(activity).State = System.Data.Entity.EntityState.Modified;
 
          }
+
+        public static  TimeSpan GetCurrentTime(string date)
+        {
+            DateTime d = Convert.ToDateTime(date);
+            TimeZone zone = TimeZone.CurrentTimeZone;
+            TimeSpan local = zone.GetUtcOffset(d);
+            return local;
+        }
          public void Save()
          {
              context.SaveChanges();
