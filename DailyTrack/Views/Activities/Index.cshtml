@@ -13,11 +13,11 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+           @Html.DisplayNameFor(model => model.Name)
         </th>
         <th></th>
     </tr>
-
+    
 @foreach (var item in Model) {
     <tr>
         <td>
@@ -29,31 +29,58 @@
             @Html.ActionLink("Delete", "Delete", new { id=item.Id })
         </td>
     </tr>
+  
+    <h2>Your daily activities</h2>
 
-    <p> Name :<span data-bind="text: Name"></span></p>
-    <p>Name <input data-bind="value: Name" /></p>
-
-    <h2>Activity type</h2>
-    <div data-bind ="template: 'typeATemplate'"></div>
-    <script id="typeATemplate" type="text/html">
-        <ul>
-            {{each(index,typeA)typesA}}
-                <li>${typeA.name}</li>
-            {{/each}}
-        </ul>
-    </script>
-   //<button data-bind="click: addActivity"
+    <table>
+        <thead>
+            <tr>
+                <th>Activity</th><th>Type</th><th>StartActivity</th>
+                <th></th>
+            </tr>
+        </thead>
+       
+        <tbody data-bind="foreach: activities">
+            <tr>
+                <td dat-bind ="text name:"></td>
+                <td data-bind="text: activityType().nameActivityType"></td>
+                <td data-bind="text: activityType.start"></td>
+            </tr>
+        </tbody>
+    </table>
+  
 }
 
 </table>
 @section Scripts {
     <script type="text/javascript">
 
-        function typeA(name) {
-            return {
-                name: ko.observable(name)
-            };
+        function ActivityList(name, initialType) {
+            var self = this;
+            self.name = name;
+            self.name =ko.oservable(initialType);
+
         }
+
+        function ActivitiesViewModel() {
+            var self = this;
+            self.availableTypes = [
+                { nameActivityType: "study" ,start:3},
+                { nameActivityType: "exercises",start:4},
+                { nameActivityType: "groceries",start:5}
+            ];
+    
+            self.activities = ko.observableArray([
+                new ActivityList("Shopping", self.availableTypes[2]),
+                new ActivityList("Homework", self.availableTypes[0])
+            ]);
+        }
+        ko.apllyBindings(new ActivitiesViewModel());
+      //  function typeA(name) {
+            //return {
+              //  name: ko.observable(name)
+           // };
+       // }
        // var addNewActivity = function() {
          //   var name = $('#newActivityName').val();
            // $.ajax({
@@ -84,10 +111,10 @@
         //};
         //test['c'](function () { alert('test') });
 
-        var viewModel = {
-            Name: ko.observable("Shopping"),
-            typesA: ko.observableArray([new typeA("Study"),new typeA("Phisical")])
-        };
-        ko.applyBindings(viewModel);
+       // var viewModel = {
+           // Name: ko.observable("Shopping"),
+           // typesA: ko.observableArray([new typeA("Study"),new typeA("Phisical")])
+       // };
+       // ko.applyBindings(viewModel);
     </script>
 }
