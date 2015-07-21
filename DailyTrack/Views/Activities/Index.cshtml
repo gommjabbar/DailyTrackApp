@@ -46,9 +46,9 @@
                 { nameActivityType: "exercises",start:4},
                 { nameActivityType: "groceries",start:5}
             ];
-    
+            //self.NewActivityText
             self.Activities = ko.observableArray();
-
+            //self.fnAddNewActivity
             self.fnGetActivities = function () {
                 $.ajax({
                     url: "/api/activities",
