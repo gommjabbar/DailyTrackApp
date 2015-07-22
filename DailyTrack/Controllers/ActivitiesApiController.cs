@@ -35,11 +35,11 @@ namespace DailyTrack.Controllers
 
         [HttpPost]
         [Route("")]
-        public bool InsertActivity(Activity activity)
+        public Activity InsertActivity(Activity activity)
         {
             activityRepository.InsertActivity(activity);
             activityRepository.Save();
-            return true;
+            return activity;
         }
     }
 }
