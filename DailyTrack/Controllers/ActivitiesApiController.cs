@@ -37,6 +37,9 @@ namespace DailyTrack.Controllers
         [Route("")]
         public Activity InsertActivity(Activity activity)
         {
+            if (activity==  null)
+                throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.BadRequest));
+
             activityRepository.InsertActivity(activity);
             activityRepository.Save();
             return activity;
