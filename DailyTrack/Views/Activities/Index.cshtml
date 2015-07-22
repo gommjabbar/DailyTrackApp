@@ -4,14 +4,13 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<!--<h2>Index</h2>
 
 <p>
     <input type="text" id="newActivityName" />
     <input type="button" value="Add Activity" onclick="addNewActivity()" />
-</p>
-
-<h2>Your daily activities</h2>
+</p> -->
+<!--<h2>Your daily activities</h2>
 <div class="col-lg-8">
     <div class="col-lg-3 col-md-3">Completed</div>
     <div class="col-lg-3 col-md-3">Activity</div>
@@ -24,6 +23,45 @@
         <div class="col-lg-3" data-bind="text: createDate"></div>
     </div>
 </div>
-@section Scripts {
-@Scripts.Render("~/bundles/app")
-}
+
+<h2>Index</h2>
+
+<!--<p>
+    <input type="text" id="newActivityName" />
+    <input type="button" value="Add Activity" onclick="addNewActivity()" />
+</p> -->
+<!--<h3>Tasks</h3>
+
+<form data-bind="submit: addTask">
+    Add task: <input data-bind="value: newTaskText" placeholder="What needs to be done?" />
+    <button type="submit">Add</button>
+</form>-->
+<div class="container">
+<h3>Your daily activities</h3>
+
+<div class="form-group">
+    <form data-bind="submit: addActivity">
+        <label for="Add activity">Add activity</label>
+         <input class form-control data-bind="value: newActivityText" placeholder="New Activity?" />
+        <button type="submit">Add</button>
+    </form>
+
+    </div> 
+ 
+<div class="form-group"></div>
+    <ul data-bind="foreach: activities, visible: activities().length > 0">
+      <div class="checkbox"></div>  <li>
+            <input type="checkbox" data-bind="checked: isDone" />
+            <input data-bind="value: name, disable: isDone" />
+            <a href="#" data-bind="click: $parent.removeActivity">Delete</a>
+       </div> </li>
+    </ul>
+</div>
+    You have <b data-bind="text: incompleteActivities().length">&nbsp;</b> incomplete activity(s)
+    <span data-bind="visible: incompleteActivities().length == 0"> !</span>
+
+    <button data-bind="click: save">Save</button>
+</div>
+    @section Scripts {
+        @Scripts.Render("~/bundles/app")
+    }
