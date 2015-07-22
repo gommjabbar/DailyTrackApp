@@ -7,23 +7,22 @@
 <h2>Activities</h2>
 
 <p>
-    <input type="text" id="newActivityName" />
-    <input type="button" value="Add Activity" onclick="AddNewActivity()" />
-</p> 
+    <input type="text" id="newActivityName" data-bind="value: NewActivityText" />
+    <input type="button" value="Add Activity" data-bind="click: fnAddNewActivity" />
+</p>
 <h2>Your daily activities</h2>
-<div class="col-lg-8">
+<div class="form-group">
     <div class="col-lg-3 col-md-3">Completed</div>
+    <div class="col-lg-3 col-md-3">Id</div>
     <div class="col-lg-3 col-md-3">Activity</div>
-    <div class="col-lg-3 col-md-3">Type</div>
     <div class="col-lg-3 col-md-3">StartActivity</div>
     <div data-bind="foreach: Activities">
         <div class="col-lg-3"><input type="checkbox" data-bind="checked: Completed" /> </div>
+        <div class="col-lg-3" data-bind="text: id"></div>
         <div class="col-lg-3" data-bind="text: name"></div>
-        <div class="col-lg-3" data-bind="text: ActivityType().nameActivityType"></div>
         <div class="col-lg-3" data-bind="text: createDate"></div>
     </div>
 </div>
-
 
 
 <!--<h3>Tasks</h3>
@@ -42,8 +41,8 @@
         <button type="submit">Add</button>
     </form>
 
-    </div> 
- 
+    </div>
+
 <div class="form-group"></div>
     <ul data-bind="foreach: activities, visible: activities().length > 0">
       <div class="checkbox"></div>  <li>
@@ -58,6 +57,6 @@
 
     <button data-bind="click: save">Save</button>
 </div>-->
-    @section Scripts {
-        @Scripts.Render("~/bundles/app")
-    }
+@section Scripts {
+    @Scripts.Render("~/bundles/app")
+}

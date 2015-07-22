@@ -1,125 +1,50 @@
 ﻿//@section Scripts {
-   // <script type="text/javascript">
+// <script type="text/javascript">
 
-       function Activity(data, initialType) {
-            var self = this;
-            self.Completed = ko.observable(false);
-            self.name = data.name || '';
-            self.createDate = data.createDate || '';
-            self.ActivityType = ko.observable(initialType);
-
-            self.Completed.subscribe(function (newValue) {
-                alert(self.name + newValue);
-            })
-        }
-
-        function AddNewActivity(name, initialType) {
-            var self = this;
-            self.name = name;
-            self.Type = ko.observable(initialType);
-        } 
-
-
-        function ActivitiesViewModel() {
-            var self = this;
-            self.availableTypes = [
-                { nameActivityType: "study" ,start:3},
-                { nameActivityType: "exercises",start:4},
-                { nameActivityType: "groceries",start:5}
-            ];
-
-
-            // Operations
-            self.addActivity = function() {
-                self.types.push(new AddNewActivity("", self.availableTypes[0]));
-            }
-   
-            //self.NewActivityText
-            self.NewActivityText = ko.observableArray();
-            self.Activities = ko.observableArray();
-            //self.fnAddNewActivity
-
-            self.fnAddNewActivity = function () {
-                var name = $('#newActivityName').val();
-                $.ajax({
-                    url: "/api/activities", 
-                    method: "POST",
-                    data: {
-                        name :name
-                    }
-                }).done(function(data){
-                              //  self.activities.push(new Activity({ name: this.newActivityText() }));
-                                //self.newActivityText("");
-                     alert(data);
-                    
-                        })
-                    } 
-
-                self.fnAddNewActivity();
-
-        
-
-
-       
-      
-
-       self.fnGetActivities = function () {
-            $.ajax({
-                url: "/api/activities",
-                method: "GET",
-            }).done(function (data) {
-                var result = $.map(data, function (item, index) {
-                    return new Activity(item, self.availableTypes[0]);
-                });
-                self.Activities(result);
-            })
-        }
-        self.fnGetActivities();
-    }
-    ko.applyBindings(new ActivitiesViewModel());
-
-   // </script>
-//} */
-
-/*function Activity(data) {
-    this.name = ko.observable(data.name);
-    this.isDone = ko.observable(data.isDone);
-}
-
-function ActivityListViewModel() {
-    // Data
+function Activity(data) {
     var self = this;
-    self.activities = ko.observableArray([]);
-    self.newActivityText = ko.observable();
-    self.incompleteActivities = ko.computed(function() {
-        return ko.utils.arrayFilter(self.activities(), function(activity) { return !activity.isDone() });
-    });
+    self.id = data.id || 0;
+    self.Completed = ko.observable(data.completed || false);
+    self.name = data.name || '';
+    self.createDate = data.createDate || '';
 
-    // Operations
-    self.addActivity = function() {
-        self.activities.push(new Activity({ name: this.newActivityText() }));
-        self.newActivityText("");
-    };
-    self.removeActivity = function(activity) { self.activities.remove(activity) };
-    self.save = function() {
-        $.ajax("/activities", {
-            data: ko.toJSON({ activities: self.activities }),
-            type: "post", contentType: "application/json",
-            success: function(result) { alert(result) }
-        });
-    };
-    // Load initial state from server, convert it to Activity instances, then populate self.activities
-    $.getJSON("/activities", function(allData) {
-        var mappedActivities = $.map(allData, function(item) { return new Activity(item) });
-        self.activities(mappedActivities);
-    });
-
-    // Load initial state from server, convert it to Activity instances, then populate self.activities
-    $.getJSON("/activities", function (allData) {
-        var mappedActivities = $.map(allData, function (item) { return new Activity(item) });
-        self.activities(mappedActivities);
-    });
-
+    self.Completed.subscribe(function (newValue) {
+        alert(self.id);
+    })
 }
 
-ko.applyBindings(new ActivityListViewModel()); */
+function ActivitiesViewModel() {
+    var self = this;
+
+    self.NewActivityText = ko.observable();
+    self.Activities = ko.observableArray();
+
+    self.fnAddNewActivity = function () {
+        var name = self.NewActivityText();
+        console.log(name);
+        $.ajax({
+            url: "/api/activities",
+            method: "POST",
+            data: {
+                name: name
+            }
+        }).done(function (data) {
+            self.Activities.push(new Activity(data));
+            self.NewActivityText("");
+        })
+    }
+
+    self.fnGetActivities = function () {
+        $.ajax({
+            url: "/api/activities",
+            method: "GET",
+        }).done(function (data) {
+            var result = $.map(data, function (item, index) {
+                return new Activity(item);
+            });
+            self.Activities(result);
+        })
+    }
+    self.fnGetActivities();
+}
+ko.applyBindings(new ActivitiesViewModel());
