@@ -1,84 +1,77 @@
 ﻿//@section Scripts {
-   // <script type="text/javascript">
+// <script type="text/javascript">
 
-       function Activity(data, initialType) {
-            var self = this;
-            self.Completed = ko.observable(false);
-            self.name = data.name || '';
-            self.createDate = data.createDate || '';
-            self.ActivityType = ko.observable(initialType);
+function Activity(data, initialType) {
+    var self = this;
+    self.Completed = ko.observable(false);
+    self.name = data.name || '';
+    self.createDate = data.createDate || '';
+    self.ActivityType = ko.observable(initialType);
 
-            self.Completed.subscribe(function (newValue) {
-                alert(self.name + newValue);
-            })
-        }
+    self.Completed.subscribe(function (newValue) {
+        alert(self.name + newValue);
+    })
+}
 
-        function AddNewActivity(name, initialType) {
-            var self = this;
-            self.name = name;
-            self.Type = ko.observable(initialType);
-        } 
+function AddNewActivity(name, initialType) {
+    var self = this;
+    self.name = name;
+    self.Type = ko.observable(initialType);
 
-
-        function ActivitiesViewModel() {
-            var self = this;
-            self.availableTypes = [
-                { nameActivityType: "study" ,start:3},
-                { nameActivityType: "exercises",start:4},
-                { nameActivityType: "groceries",start:5}
-            ];
+}
 
 
-            // Operations
-            self.addActivity = function() {
-                self.types.push(new AddNewActivity("", self.availableTypes[0]));
-            }
-   
-            //self.NewActivityText
-            self.NewActivityText = ko.observableArray();
-            self.Activities = ko.observableArray();
-            //self.fnAddNewActivity
+function ActivitiesViewModel() {
+    var self = this;
+    self.availableTypes = [
+        { nameActivityType: "study", start: 3 },
+        { nameActivityType: "exercises", start: 4 },
+        { nameActivityType: "groceries", start: 5 }        
+    ];
 
-            self.fnAddNewActivity = function () {
-                var name = $('#newActivityName').val();
-                $.ajax({
-                    url: "/api/activities", 
-                    method: "POST",
-                    data: {
-                        name :name
-                    }
-                }).done(function(data){
-                              //  self.activities.push(new Activity({ name: this.newActivityText() }));
-                                //self.newActivityText("");
-                     alert(data);
-                    
-                        })
-                    } 
+ 
 
-                self.fnAddNewActivity();
-
-        
-
-
-       
-      
-
-       self.fnGetActivities = function () {
-            $.ajax({
-                url: "/api/activities",
-                method: "GET",
-            }).done(function (data) {
-                var result = $.map(data, function (item, index) {
-                    return new Activity(item, self.availableTypes[0]);
-                });
-                self.Activities(result);
-            })
-        }
-        self.fnGetActivities();
+    self.NewActivityText = ko.observableArray();
+    self.Activities = ko.observableArray();
+    
+    self.addActivity = function () {
+        self.types.push(new AddNewActivity("test1", self.availableTypes[1]));
+        self.types.push(new AddNewActivity("", self.availableTypes[0]));
     }
-    ko.applyBindings(new ActivitiesViewModel());
 
-   // </script>
+    self.fnAddNewActivity = function () {
+        var name = $('#newActivityName').val();
+        $.ajax({
+            url: "/api/activities",
+            method: "POST",
+            data: {
+                name: name
+            }
+        }).done(function (data) {
+            self.activities.push(new Activity({ name: this.newActivityText() }));
+            self.newActivityText("");
+
+        })
+    }
+    self.fnAddNewActivity();
+
+
+    self.fnGetActivities = function () {
+        $.ajax({
+            url: "/api/activities",
+            method: "GET",
+        }).done(function (data) {
+            var result = $.map(data, function (item, index) {
+                return new Activity(item, self.availableTypes[0]);
+            });
+            self.Activities(result);
+        })
+    }
+    self.fnGetActivities();
+}
+ko.applyBindings(new ActivitiesViewModel());
+
+// </script>
 //} */
 
 /*function Activity(data) {
