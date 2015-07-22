@@ -92,7 +92,7 @@ function ActivityListViewModel() {
 
     // Operations
     self.addActivity = function() {
-        self.activities.push(new activity({ name: this.newActivityText() }));
+        self.activities.push(new Activity({ name: this.newActivityText() }));
         self.newActivityText("");
     };
     self.removeActivity = function(activity) { self.activities.remove(activity) };
