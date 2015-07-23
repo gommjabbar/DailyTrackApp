@@ -103,6 +103,8 @@ namespace DailyTrack.Controllers
             return View(activity);
         }
 
+
+
         // POST: Activities/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

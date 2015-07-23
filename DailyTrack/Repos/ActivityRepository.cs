@@ -46,6 +46,12 @@ namespace DailyTrack.Repos
 
          }
 
+        public bool ActivityStatus(Activity activity)
+        {
+            return context.Activities.Get(activity.status);
+            
+        }
+
         public static  TimeSpan GetCurrentTime(string date)
         {
             DateTime d = Convert.ToDateTime(date);

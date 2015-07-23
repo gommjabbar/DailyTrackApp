@@ -9,15 +9,31 @@ function Activity(data) {
     self.createDate = data.createDate || '';
 
     self.Completed.subscribe(function (newValue) {
-        alert(self.id);
+        alert("Task "+self.id+" completed !");
     })
 }
 
+
+
+function confirmation() {
+    var answer = confirm("Are you sure you want to delete this activity ?.")
+    if(answer)
+    {
+        $.ajax({
+            url:"/api/activities",
+            method:"PUT",
+            function(data){
+            alert(data); 
+        });
+    } 
+    return false; 
+}
 function ActivitiesViewModel() {
     var self = this;
 
     self.NewActivityText = ko.observable();
     self.Activities = ko.observableArray();
+    
 
     self.fnAddNewActivity = function () {
         var name = self.NewActivityText();
@@ -33,7 +49,20 @@ function ActivitiesViewModel() {
             self.NewActivityText("");
         })
     }
-
+    self.fnDeleteActivity = function () {
+        var id = self.Id()
+        $.ajax({
+            url: "/api/activities",
+            method: "DELETE",
+            data: {
+                id: id
+            }
+            
+        }).done(function(data)){
+               self.Id();
+             
+}
+    }
     self.fnGetActivities = function () {
         $.ajax({
             url: "/api/activities",
