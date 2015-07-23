@@ -17,7 +17,7 @@ namespace DailyTrack.Models
       
         [NotMapped]
         public bool IsStarted { get; set; }
-        public ICollection<ActivityTime> ActivityTimes { get; set; }
+        public virtual ICollection<ActivityTime> ActivityTimes { get; set; }
         public bool Completed { get; set; }
         public DateTime? CompletedAt { get; set; }
     }

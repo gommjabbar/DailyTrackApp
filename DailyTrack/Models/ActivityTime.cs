@@ -10,7 +10,7 @@ namespace DailyTrack.Models
     {
         [ForeignKey("Activity")]
         public int ActivityId { get; set; }
-        public Activity activity { get; set; }
+        public virtual Activity Activity { get; set; }
 
         public DateTime? StartTime { get; set; }
         public DateTime? EndTime { get; set; }
