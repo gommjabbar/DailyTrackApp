@@ -62,6 +62,7 @@ namespace DailyTrack.Repos
             Save();
             return activity;
         }
+
         public static TimeSpan GetCurrentTime(string date)
         {
             DateTime d = Convert.ToDateTime(date);
