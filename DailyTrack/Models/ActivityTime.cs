@@ -7,7 +7,7 @@ using System.Web;
 namespace DailyTrack.Models
 {
     public class ActivityTime : BaseEntity
-    {
+    {   public int ActivityTimeId { get; set; }
         [ForeignKey("Activity")]
         public int ActivityId { get; set; }
         public virtual Activity Activity { get; set; }
