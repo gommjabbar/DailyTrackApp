@@ -10,15 +10,14 @@ namespace DailyTrack.Models
     {
         public Activity()
         {
-            //ActivityTimes = new List<ActivityTime>();
+            ActivityTimes = new List<ActivityTime>();
         }
         public int Id { get; set; }
         public string Name { get; set; }
-        public DateTime? StartTime { get; set; }
-        public DateTime? EndTime { get; set; }
-        //[NotMapped]
-        //public bool IsStarted { get; set; }
-        //public ICollection<ActivityTime> ActivityTimes { get; set; }
+      
+        [NotMapped]
+        public bool IsStarted { get; set; }
+        public ICollection<ActivityTime> ActivityTimes { get; set; }
         public bool Completed { get; set; }
         public DateTime? CompletedAt { get; set; }
     }
