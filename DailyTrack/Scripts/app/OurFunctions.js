@@ -14,7 +14,7 @@ function Activity(data) {
 }
 
 
-
+/*
 function confirmation() {
     var answer = confirm("Are you sure you want to delete this activity ?.")
     if(answer)
@@ -28,6 +28,9 @@ function confirmation() {
     } 
     return false; 
 }
+*/
+
+
 function ActivitiesViewModel() {
     var self = this;
 
@@ -49,6 +52,8 @@ function ActivitiesViewModel() {
             self.NewActivityText("");
         })
     }
+
+    /*
     self.fnDeleteActivity = function () {
         var id = self.Id()
         $.ajax({
@@ -62,6 +67,9 @@ function ActivitiesViewModel() {
                self.Id();
              
 }
+*/
+
+
     }
     self.fnGetActivities = function () {
         $.ajax({
@@ -75,5 +83,5 @@ function ActivitiesViewModel() {
         })
     }
     self.fnGetActivities();
-}
+
 ko.applyBindings(new ActivitiesViewModel());

@@ -46,11 +46,13 @@ namespace DailyTrack.Repos
 
          }
 
+       /*
         public bool ActivityStatus(Activity activity)
         {
-            return context.Activities.Get(activity.status);
+         //   return context.Activities.Get(activity.Status);
             
         }
+        */
 
         public static  TimeSpan GetCurrentTime(string date)
         {
