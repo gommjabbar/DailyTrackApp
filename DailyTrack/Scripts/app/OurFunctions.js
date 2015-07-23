@@ -9,12 +9,24 @@ function Activity(data) {
     self.Completed.subscribe(function (newValue) {
         alert("Task " + self.id + " completed !");
         $.ajax({
-            url: "/api/activities/1/complete",
+            url: "/api/activities/5/complete",
             method: "PUT",
         }).done(function (data) {
 
         })
     })
+
+    /*
+    self.Uncompleted.subscribe(function (newValue) {
+        alert("Task " + self.id + " uncompleted !");
+        $.ajax({
+            url: "/api/activities/10/uncomplete",
+            method: "PUT",
+        }).done(function (data) {
+
+        })
+    })
+    */
 }
 
 function ActivitiesViewModel() {
