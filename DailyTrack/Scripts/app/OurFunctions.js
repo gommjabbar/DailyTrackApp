@@ -1,6 +1,4 @@
-﻿//@section Scripts {
-// <script type="text/javascript">
-
+﻿
 function Activity(data) {
     var self = this;
     self.id = data.id || 0;
@@ -9,27 +7,15 @@ function Activity(data) {
     self.createDate = data.createDate || '';
 
     self.Completed.subscribe(function (newValue) {
-        alert("Task "+self.id+" completed !");
+        alert("Task " + self.id + " completed !");
+        $.ajax({
+            url: "/api/activities/1/complete",
+            method: "PUT",
+        }).done(function (data) {
+
+        })
     })
 }
-
-
-/*
-function confirmation() {
-    var answer = confirm("Are you sure you want to delete this activity ?.")
-    if(answer)
-    {
-        $.ajax({
-            url:"/api/activities",
-            method:"PUT",
-            function(data){
-            alert(data); 
-        });
-    } 
-    return false; 
-}
-*/
-
 
 function ActivitiesViewModel() {
     var self = this;
@@ -52,24 +38,6 @@ function ActivitiesViewModel() {
         })
     }
 
-    /*
-    self.fnDeleteActivity = function () {
-        var id = self.Id()
-        $.ajax({
-            url: "/api/activities",
-            method: "DELETE",
-            data: {
-                id: id
-            }
-            
-        }).done(function(data)){
-               self.Id();
-             
-}
-*/
-
-
-    //}
     self.fnGetActivities = function () {
         $.ajax({
             url: "/api/activities",
@@ -82,5 +50,6 @@ function ActivitiesViewModel() {
         })
     }
     self.fnGetActivities();
+
 }
 ko.applyBindings(new ActivitiesViewModel());
