@@ -11,6 +11,7 @@ namespace DailyTrack.Models
         public string Name { get; set; }
         public DateTime? StartTime { get; set; }
         public DateTime? EndTime { get; set; }
-        public bool Status { get; set; }
+        public bool Completed { get; set; }
+        public DateTime? CompletedAt { get; set; }
     }
 }

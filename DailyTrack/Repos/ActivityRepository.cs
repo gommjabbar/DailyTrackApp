@@ -46,12 +46,13 @@ namespace DailyTrack.Repos
 
         }
 
-
-        public void ActivityStatus(int? id)
+        public Activity CompleteActivity(int id)
         {
-            Activity activity = context.Activities.Find(id);
-            activity.Status = true;
-
+            var activity = context.Activities.Find(id);
+            activity.Completed = true;
+            activity.CompletedAt = DateTime.Now;
+            Save();
+            return activity;
         }
 
 

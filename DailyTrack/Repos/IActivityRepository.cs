@@ -1,15 +1,17 @@
-﻿using System;
+﻿using DailyTrack.Models;
+using System;
+using System.Collections.Generic;
 namespace DailyTrack.Repos
 {
     public interface IActivityRepository
     {
         void DeleteActivity(int? Id);
-        System.Collections.Generic.IEnumerable<DailyTrack.Models.Activity> GetActivities();
-        DailyTrack.Models.Activity GetActivityById(int? id);
-        void InsertActivity(DailyTrack.Models.Activity activity);
-        void ActivityStatus(int? id);
+        IEnumerable<Activity> GetActivities();
+        Activity GetActivityById(int? id);
+        void InsertActivity(Activity activity);
+        Activity CompleteActivity(int id);
 
         void Save();
-        void UpdateActivity(DailyTrack.Models.Activity activity);
+        void UpdateActivity(Activity activity);
     }
 }

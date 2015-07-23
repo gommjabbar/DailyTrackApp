@@ -226,6 +226,10 @@
     <Compile Include="Migrations\201507230734045_AddStatus.Designer.cs">
       <DependentUpon>201507230734045_AddStatus.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201507230933153_ActivityCompleted.cs" />
+    <Compile Include="Migrations\201507230933153_ActivityCompleted.Designer.cs">
+      <DependentUpon>201507230933153_ActivityCompleted.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Activity.cs" />
@@ -348,6 +352,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201507230734045_AddStatus.resx">
       <DependentUpon>201507230734045_AddStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507230933153_ActivityCompleted.resx">
+      <DependentUpon>201507230933153_ActivityCompleted.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
