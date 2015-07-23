@@ -10,7 +10,7 @@ namespace DailyTrack.Repos
         Activity GetActivityById(int? id);
         void InsertActivity(Activity activity);
         Activity CompleteActivity(int id);
-
+        Activity UncompleteActivity(int id);
         void Save();
         void UpdateActivity(Activity activity);
     }

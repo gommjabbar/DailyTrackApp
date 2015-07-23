@@ -55,7 +55,13 @@ namespace DailyTrack.Repos
             return activity;
         }
 
-
+        public Activity UncompleteActivity(int id)
+        {
+            var activity = context.Activities.Find(id);
+            activity.Completed = false;
+            Save();
+            return activity;
+        }
         public static TimeSpan GetCurrentTime(string date)
         {
             DateTime d = Convert.ToDateTime(date);
