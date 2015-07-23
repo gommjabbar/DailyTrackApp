@@ -40,7 +40,6 @@ function ActivitiesViewModel() {
 
     self.fnAddNewActivity = function () {
         var name = self.NewActivityText();
-        console.log(name);
         $.ajax({
             url: "/api/activities",
             method: "POST",

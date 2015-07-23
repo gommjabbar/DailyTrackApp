@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -7,10 +8,17 @@ namespace DailyTrack.Models
 {
     public class Activity : BaseEntity
     {
+        public Activity()
+        {
+            //ActivityTimes = new List<ActivityTime>();
+        }
         public int Id { get; set; }
         public string Name { get; set; }
         public DateTime? StartTime { get; set; }
         public DateTime? EndTime { get; set; }
+        //[NotMapped]
+        //public bool IsStarted { get; set; }
+        //public ICollection<ActivityTime> ActivityTimes { get; set; }
         public bool Completed { get; set; }
         public DateTime? CompletedAt { get; set; }
     }

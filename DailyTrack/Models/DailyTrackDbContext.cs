@@ -18,6 +18,7 @@ namespace DailyTrack.Models
         }
 
         public System.Data.Entity.DbSet<DailyTrack.Models.Activity> Activities { get; set; }
+        //public System.Data.Entity.DbSet<DailyTrack.Models.ActivityTime> ActivitieTimes { get; set; }
 
         public override int SaveChanges()
         {
