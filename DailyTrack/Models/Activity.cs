@@ -14,9 +14,9 @@ namespace DailyTrack.Models
         }
         public int Id { get; set; }
 
-        //[ForeignKey("Folder")]
-        //public int FolderId { get; set; }
-        //public virtual Folder Folder { get; set; }
+        [ForeignKey("Folder")]
+        public int FolderId { get; set; }
+        public virtual Folder Folder { get; set; }
 
         public string Name { get; set; }
       

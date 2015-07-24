@@ -208,33 +208,34 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ActivitiesApiController.cs" />
     <Compile Include="Controllers\ActivitiesController.cs" />
+    <Compile Include="Controllers\FoldersApiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\repository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201507200952333_InitialCreate.cs" />
-    <Compile Include="Migrations\201507200952333_InitialCreate.Designer.cs">
+    <Compile Include="Models\Migrations\201507200952333_InitialCreate.cs" />
+    <Compile Include="Models\Migrations\201507200952333_InitialCreate.Designer.cs">
       <DependentUpon>201507200952333_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201507201000334_NullableActivityProperties.cs" />
-    <Compile Include="Migrations\201507201000334_NullableActivityProperties.Designer.cs">
+    <Compile Include="Models\Migrations\201507201000334_NullableActivityProperties.cs" />
+    <Compile Include="Models\Migrations\201507201000334_NullableActivityProperties.Designer.cs">
       <DependentUpon>201507201000334_NullableActivityProperties.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201507230734045_AddStatus.cs" />
-    <Compile Include="Migrations\201507230734045_AddStatus.Designer.cs">
+    <Compile Include="Models\Migrations\201507230734045_AddStatus.cs" />
+    <Compile Include="Models\Migrations\201507230734045_AddStatus.Designer.cs">
       <DependentUpon>201507230734045_AddStatus.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201507230933153_ActivityCompleted.cs" />
-    <Compile Include="Migrations\201507230933153_ActivityCompleted.Designer.cs">
+    <Compile Include="Models\Migrations\201507230933153_ActivityCompleted.cs" />
+    <Compile Include="Models\Migrations\201507230933153_ActivityCompleted.Designer.cs">
       <DependentUpon>201507230933153_ActivityCompleted.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201507231325348_ActivityTimeId.cs" />
-    <Compile Include="Migrations\201507231325348_ActivityTimeId.Designer.cs">
+    <Compile Include="Models\Migrations\201507231325348_ActivityTimeId.cs" />
+    <Compile Include="Models\Migrations\201507231325348_ActivityTimeId.Designer.cs">
       <DependentUpon>201507231325348_ActivityTimeId.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Activity.cs" />
     <Compile Include="Models\ActivityTime.cs" />
@@ -246,7 +247,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Repos\ActivityRepository.cs" />
+    <Compile Include="Repos\FolderRepository.cs" />
     <Compile Include="Repos\IActivityRepository.cs" />
+    <Compile Include="Repos\IFolderRepository.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -353,19 +356,19 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201507200952333_InitialCreate.resx">
+    <EmbeddedResource Include="Models\Migrations\201507200952333_InitialCreate.resx">
       <DependentUpon>201507200952333_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201507201000334_NullableActivityProperties.resx">
+    <EmbeddedResource Include="Models\Migrations\201507201000334_NullableActivityProperties.resx">
       <DependentUpon>201507201000334_NullableActivityProperties.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201507230734045_AddStatus.resx">
+    <EmbeddedResource Include="Models\Migrations\201507230734045_AddStatus.resx">
       <DependentUpon>201507230734045_AddStatus.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201507230933153_ActivityCompleted.resx">
+    <EmbeddedResource Include="Models\Migrations\201507230933153_ActivityCompleted.resx">
       <DependentUpon>201507230933153_ActivityCompleted.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201507231325348_ActivityTimeId.resx">
+    <EmbeddedResource Include="Models\Migrations\201507231325348_ActivityTimeId.resx">
       <DependentUpon>201507231325348_ActivityTimeId.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
