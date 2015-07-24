@@ -5,7 +5,9 @@
 }
 
 <h2>Activities</h2>
+<activity-list params="text: NewActivityText">
 
+</activity-list>
 <p>
     <input type="text" id="newActivityName" data-bind="value: NewActivityText" />
     <input type="button" value="Add Activity" data-bind="click: fnAddNewActivity" />
@@ -18,7 +20,7 @@
     <div class="col-lg-3 col-md-3">Activity</div>
     <div class="col-lg-3 col-md-3">StartActivity</div>
     </div>
-   
+
     <div data-bind="foreach: Activities">
         <div class="row"></div>
         <div class="col-lg-3"><input type="checkbox" data-bind="checked: Completed" /> </div>
@@ -29,7 +31,7 @@
     </div>
     </div>
 
-    
+
 <!--<form>
     <input type="button" value="Start Activity!" onclick="doTimer()">
     <input type="text" id="txt" />

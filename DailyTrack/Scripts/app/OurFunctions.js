@@ -15,18 +15,6 @@ function Activity(data) {
 
         })
     })
-
-    /*
-    self.Uncompleted.subscribe(function (newValue) {
-        alert("Task " + self.id + " uncompleted !");
-        $.ajax({
-            url: "/api/activities/10/uncomplete",
-            method: "PUT",
-        }).done(function (data) {
-
-        })
-    })
-    */
 }
 
 /*var c = 0;
