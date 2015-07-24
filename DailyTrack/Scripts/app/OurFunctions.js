@@ -45,7 +45,6 @@ function ActivitiesViewModel() {
     self.NewActivityText = ko.observable();
     self.Activities = ko.observableArray();
 
-
     self.fnAddNewActivity = function () {
         var name = self.NewActivityText();
         $.ajax({
@@ -60,18 +59,7 @@ function ActivitiesViewModel() {
         })
     }
 
-    self.fnGetActivities = function () {
-        $.ajax({
-            url: "/api/activities",
-            method: "GET",
-        }).done(function (data) {
-            var result = $.map(data, function (item, index) {
-                return new Activity(item);
-            });
-            self.Activities(result);
-        })
-    }
-    self.fnGetActivities();
+    
 
 }
 ko.applyBindings(new ActivitiesViewModel());
