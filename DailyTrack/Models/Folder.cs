@@ -7,10 +7,14 @@ namespace DailyTrack.Models
 {
     public class Folder : BaseEntity
     {
-        public Folder()
+        private string name;
+
+        public Folder(string name)
         {
             Activities = new List<Activity>();
+            this.name = name;
         }
+
         public int Id { get; set; }
         public string Name { get; set; }
         public virtual ICollection<Activity> Activities { get; set; }
