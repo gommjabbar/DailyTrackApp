@@ -215,6 +215,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201507241003342_Folders.cs" />
+    <Compile Include="Migrations\201507241003342_Folders.Designer.cs">
+      <DependentUpon>201507241003342_Folders.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Migrations\201507200952333_InitialCreate.cs" />
     <Compile Include="Models\Migrations\201507200952333_InitialCreate.Designer.cs">
       <DependentUpon>201507200952333_InitialCreate.cs</DependentUpon>
@@ -356,6 +360,9 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\201507241003342_Folders.resx">
+      <DependentUpon>201507241003342_Folders.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Models\Migrations\201507200952333_InitialCreate.resx">
       <DependentUpon>201507200952333_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>

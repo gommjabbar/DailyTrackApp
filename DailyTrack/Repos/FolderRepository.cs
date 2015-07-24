@@ -6,7 +6,7 @@ using DailyTrack.Models;
 
 namespace DailyTrack.Repos
 {
-    public class FolderRepository : IDisposable, DailyTrack.Repos.IFolderRepository
+    public class FolderRepository : IFolderRepository
     {
         private DailyTrackDbContext context;
 
@@ -15,14 +15,12 @@ namespace DailyTrack.Repos
             this.context = context;
         }
 
-
-
         public IEnumerable<Folder> GetFolders()
         {
             return context.Folders.ToList();
         }
 
-        public Activity GetFolderById(int? id)
+        public Folder GetFolderById(int? id)
         {
             return context.Folders.Find(id);
         }
@@ -30,37 +28,14 @@ namespace DailyTrack.Repos
 
         public void InsertFolder(Folder folder)
         {
-            context.Folders.Add(folders);
+            context.Folders.Add(folder);
         }
 
-        public void Dispose()
+
+        public void Save()
         {
-            throw new NotImplementedException();
+            context.SaveChanges();
         }
     }
 
-    public void Save()
-    {
-        context.SaveChanges();
-    }
-
-    private bool disposed = false;
-
-    protected virtual void Dispose(bool disposing)
-    {
-        if (!this.disposed)
-        {
-            if (disposing)
-            {
-                context.Dispose();
-            }
-
-        }
-        this.disposed = true;
-    }
-    public void Dispose()
-    {
-        Dispose(true);
-        GC.SuppressFinalize(this);
-    }
 }

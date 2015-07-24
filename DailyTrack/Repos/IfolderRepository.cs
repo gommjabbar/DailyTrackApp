@@ -6,7 +6,7 @@ using System.Web;
 
 namespace DailyTrack.Repos
 {
-    public class IFolderRepository
+    public interface IFolderRepository
     {
         IEnumerable<Folder> GetFolders();
         Folder GetFolderById(int? id);
