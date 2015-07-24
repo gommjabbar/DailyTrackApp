@@ -19,7 +19,8 @@ namespace DailyTrack.Migrations
             // TODO add default inbox folder
             if (!context.Folders.Any())
             {
-                context.Folders.Add(new Folder("Inbox"));
+                context.Folders.Add(new Folder() { Name = "Inbox" });
+                context.SaveChanges();
             }
         }
     }

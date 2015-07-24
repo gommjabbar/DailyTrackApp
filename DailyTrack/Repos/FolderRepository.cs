@@ -17,7 +17,8 @@ namespace DailyTrack.Repos
 
         public IEnumerable<Folder> GetFolders()
         {
-            return context.Folders.ToList();
+            var res = context.Folders.ToList();
+            return res;
         }
 
         public Folder GetFolderById(int? id)
