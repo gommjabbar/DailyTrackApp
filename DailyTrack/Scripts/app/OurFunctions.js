@@ -7,10 +7,10 @@ function Activity(data) {
     self.createDate = data.createDate || '';
 
     self.Completed.subscribe(function (newValue) {
-        alert("Task " + self.id + " completed !");
+        var method = newValue ? 'PUT' : 'DELETE';
         $.ajax({
-            url: "/api/activities/5/complete",
-            method: "PUT",
+            url: "/api/activities/" + self.id + "/complete",
+            method: method,
         }).done(function (data) {
 
         })

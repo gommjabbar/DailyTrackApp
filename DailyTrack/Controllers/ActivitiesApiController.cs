@@ -33,8 +33,8 @@ namespace DailyTrack.Controllers
             return activityRepository.CompleteActivity(id);
         }
 
-        [HttpPut]
-        [Route("{id:int}/uncomplete")]
+        [HttpDelete]
+        [Route("{id:int}/complete")]
         public Activity UncompleteActivity(int id)
         {
             return activityRepository.UncompleteActivity(id);
