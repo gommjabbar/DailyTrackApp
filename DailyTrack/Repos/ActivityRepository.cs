@@ -30,6 +30,8 @@ namespace DailyTrack.Repos
 
         public void InsertActivity(Activity activity)
         {
+            if (activity.FolderId == 0)
+                activity.FolderId = context.Folders.First().Id;
             context.Activities.Add(activity);
         }
 

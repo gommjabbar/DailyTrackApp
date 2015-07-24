@@ -17,7 +17,7 @@ namespace DailyTrack.Migrations
         protected override void Seed(DailyTrack.Models.DailyTrackDbContext context)
         {
             // TODO add default inbox folder
-            //if (context.Activities.Any())
+            //if (!context.Activities.Any())
             //{
             //    context.Activities.Add(new Activity());
             //}

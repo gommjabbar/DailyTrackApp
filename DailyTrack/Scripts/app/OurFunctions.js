@@ -49,7 +49,7 @@ function ActivitiesViewModel() {
 
     self.NewActivityText = ko.observable();    
     self.ActivityChange = ko.observable(0);
-
+    self.SelectedFolder = ko.observable();
     self.fnAddNewActivity = function () {
         var name = self.NewActivityText();
         $.ajax({

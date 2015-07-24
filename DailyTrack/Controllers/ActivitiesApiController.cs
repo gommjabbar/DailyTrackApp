@@ -48,7 +48,7 @@ namespace DailyTrack.Controllers
         {
             if (activity == null)
                 throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.BadRequest));
-
+            
             activityRepository.InsertActivity(activity);
             activityRepository.Save();
             return activity;
