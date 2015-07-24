@@ -2,11 +2,15 @@
     viewModel: function(params) {
         var self = this;        
         self.Activities = ko.observableArray();
+        self.completed = params.completed;
 
         self.fnGetActivities = function () {
             $.ajax({
                 url: "/api/activities",
                 method: "GET",
+                data: {
+                    completed: self.completed
+                }
             }).done(function (data) {
                 var result = $.map(data, function (item, index) {
                     return new Activity(item);

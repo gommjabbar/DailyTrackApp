@@ -21,9 +21,11 @@ namespace DailyTrack.Controllers
 
         [HttpGet]
         [Route("")]
-        public IEnumerable<Activity> GetAllActivitities()
+        public IEnumerable<Activity> GetAllActivitities(bool completed)
         {
-            return activityRepository.GetActivities();
+            return activityRepository
+                .GetActivities()
+                .Where(activity => activity.Completed == completed);
         }
 
         [HttpPut]
