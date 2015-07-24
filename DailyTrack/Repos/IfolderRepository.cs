@@ -10,7 +10,7 @@ namespace DailyTrack.Repos
     {
         IEnumerable<Folder> GetFolders();
         Folder GetFolderById(int? id);
-        void  InsertFolder(Folder folder);
+        void InsertFolder(Folder folder);
         void Save();
     }
 }

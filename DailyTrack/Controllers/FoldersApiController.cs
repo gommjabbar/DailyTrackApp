@@ -28,8 +28,6 @@ namespace DailyTrack.Controllers
 
         }
 
-
-
         [HttpPost]
         [Route("")]
         public Folder InsertFolder(Folder folder)
