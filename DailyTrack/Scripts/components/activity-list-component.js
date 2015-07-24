@@ -3,5 +3,5 @@
         var self = this;
         self.Test = params.text;
     },
-    template: "<div data-bind='text: Test'></div>"//{ fromFileType: 'html' }
+    template: { fromFileType: 'html' }
 });

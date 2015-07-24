@@ -4,7 +4,7 @@ var fromHtmlTemplateLoader = {
         if (templateConfig.fromFileType) {
 
             var dashedComponentName = name.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
-            var templateFolder = '/templates/' + dashedComponentName.split('-')[0] + '/';
+            var templateFolder = '/templates/'; //+ dashedComponentName.split('-')[0] + '/';
 
             // Uses jQuery's ajax facility to load the markup from a file
             var fullUrl = templateFolder + dashedComponentName + '-template.' + templateConfig.fromFileType;
