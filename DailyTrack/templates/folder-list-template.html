@@ -6,15 +6,22 @@
         <div class="col-lg-3 col-md-3">StartActivity</div>
     </div>
 
-    <div data-bind="foreach: Activities">
+   <!-- <div data-bind="foreach: Folders">
         <div class="row"></div>
         <div class="col-lg-3">
-            <input type="checkbox"
-                   data-bind
-                    checked: Completed,
-                    click: $parent.fnCompletedChanged" />
+            <input
+                   data-bind />
+                    
         </div>
         <div class="col-lg-3" data-bind="text: id"></div>
         <div class="col-lg-3" data-bind="text: name"></div>
     </div>
+</div>-->
+
+
+
+<div  class="folders" data-bind="foreach: folders">
+    <li data-bind="text: $data,
+                   css: { selected: $data == $root.chosenFolderId() },
+                   click: $root.goToFolder"></li>
 </div>

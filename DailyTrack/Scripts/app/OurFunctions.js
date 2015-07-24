@@ -49,6 +49,8 @@ function ActivitiesViewModel() {
 
     self.NewActivityText = ko.observable();
     self.ActivityChange = ko.observable(0);
+    self.folders = ["Inbox"];
+    self.ChosenFolderId = ko.observable();
     self.SelectedFolder = ko.observable();
 
     self.fnAddNewActivity = function () {
@@ -65,7 +67,17 @@ function ActivitiesViewModel() {
         })
     }
 
+   
+  
+   
 
+    // Behaviours    
+    self.goToFolder = function(folder) { 
+        self.ChosenFolderId(folder);
+        $.get('/mail', { folder: folder }, self.SelectedFolder);
+    // Show inbox by default
+    self.goToFolder('Inbox');
+};
 
 }
 ko.applyBindings(new ActivitiesViewModel());

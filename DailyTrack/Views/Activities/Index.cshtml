@@ -4,26 +4,54 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Activities</h2>
-
-<p>
-    <input type="text" id="newActivityName" data-bind="value: NewActivityText" />
-    <input type="button" value="Add Activity" data-bind="click: fnAddNewActivity" />
-</p>
-<h2>Your daily activities</h2>
-<activity-list params="completed: false, ActivityChange: ActivityChange">
-</activity-list>
-<h2>Completed activities</h2>
-<activity-list params="completed: true, ActivityChange: ActivityChange">
-</activity-list>
-
-<!--<form>
-    <input type="button" value="Start Activity!" onclick="doTimer()">
-    <input type="text" id="txt" />
-    <input type="button" value="Stop Activity!" onclick="stopCount()">
-</form> -->
 
 
-@section Scripts {
-    @Scripts.Render("~/bundles/app")
-}
+
+<!-- Folders -->
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#">Inbox</a></li>
+    <ul class="folders" data-bind="foreach: folders">
+        <li data-bind="text: $data,
+                   css: { selected: $data == $root.chosenFolderId() },
+                   click: $root.goToFolder"></li>
+    </ul>
+</ul>
+    <!-- Mails grid -->
+    <table class="activities" data-bind="with: chosenFolderData">
+     
+        <tbody data-bind="foreach: Activity">
+            <div class="form-group">
+                <div clsss="row">
+                    <div class="col-lg-3 col-md-3">Completed</div>
+                    <div class="col-lg-3 col-md-3">Id</div>
+                    <div class="col-lg-3 col-md-3">Activity</div>
+                    <div class="col-lg-3 col-md-3">StartActivity</div>
+                </div>
+
+        </tbody>
+    </table>
+
+
+    <!--<h2>Activities</h2>
+
+    <p>
+        <input type="text" id="newActivityName" data-bind="value: NewActivityText" />
+        <input type="button" value="Add Activity" data-bind="click: fnAddNewActivity" />
+    </p>
+    <h2>Your daily activities</h2>
+    <activity-list params="completed: false, ActivityChange: ActivityChange">
+    </activity-list>
+    <h2>Completed activities</h2>
+    <activity-list params="completed: true, ActivityChange: ActivityChange">
+    </activity-list>-->
+
+    <!--<form>
+        <input type="button" value="Start Activity!" onclick="doTimer()">
+        <input type="text" id="txt" />
+        <input type="button" value="Stop Activity!" onclick="stopCount()">
+    </form> -->
+
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/app")
+    }
