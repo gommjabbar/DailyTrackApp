@@ -6,15 +6,15 @@ function Activity(data) {
     self.name = data.name || '';
     self.createDate = data.createDate || '';
 
-    self.Completed.subscribe(function (newValue) {
-        var method = newValue ? 'PUT' : 'DELETE';
-        $.ajax({
-            url: "/api/activities/" + self.id + "/complete",
-            method: method,
-        }).done(function (data) {
+    //self.Completed.subscribe(function (newValue) {
+    //    var method = newValue ? 'PUT' : 'DELETE';
+    //    $.ajax({
+    //        url: "/api/activities/" + self.id + "/complete",
+    //        method: method,
+    //    }).done(function (data) {
 
-        })
-    })
+    //    })
+    //})
 }
 
 /*var c = 0;
@@ -42,8 +42,8 @@ function stopCount() {
 function ActivitiesViewModel() {
     var self = this;
 
-    self.NewActivityText = ko.observable();
-    self.Activities = ko.observableArray();
+    self.NewActivityText = ko.observable();    
+    self.ActivityChange = ko.observable(0);
 
     self.fnAddNewActivity = function () {
         var name = self.NewActivityText();
@@ -54,7 +54,7 @@ function ActivitiesViewModel() {
                 name: name
             }
         }).done(function (data) {
-            self.Activities.push(new Activity(data));
+            self.ActivityChange(self.ActivityChange() + 1);
             self.NewActivityText("");
         })
     }

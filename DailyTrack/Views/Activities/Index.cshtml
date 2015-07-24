@@ -11,11 +11,11 @@
     <input type="button" value="Add Activity" data-bind="click: fnAddNewActivity" />
 </p>
 <h2>Your daily activities</h2>
-<activity-list params="completed: false">
+<activity-list params="completed: false, ActivityChange: ActivityChange">
 </activity-list>
-@*<h2>Completed activities</h2>
-<activity-list params="text: NewActivityText">
-</activity-list>*@
+<h2>Completed activities</h2>
+<activity-list params="completed: true, ActivityChange: ActivityChange">
+</activity-list>
 
 <!--<form>
     <input type="button" value="Start Activity!" onclick="doTimer()">

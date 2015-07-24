@@ -8,7 +8,12 @@
 
     <div data-bind="foreach: Activities">
         <div class="row"></div>
-        <div class="col-lg-3"><input type="checkbox" data-bind="checked: Completed" /> </div>
+        <div class="col-lg-3">
+            <input type="checkbox" 
+                data-bind="
+                    checked: Completed,
+                    click: $parent.fnCompletedChanged" /> 
+        </div>
         <!--<div class="col-lg-3"><input type="checkbox" data-bind="checked:Uncompleted" /> </div>-->
         <div class="col-lg-3" data-bind="text: id"></div>
         <div class="col-lg-3" data-bind="text: name"></div>
