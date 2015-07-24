@@ -1,4 +1,9 @@
-﻿
+﻿function Folder(data) {
+    var self = this;
+    self.id = data.id || 0;
+    self.name = data.name || '';
+}
+
 function Activity(data) {
     var self = this;
     self.id = data.id || 0;
