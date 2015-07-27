@@ -5,10 +5,11 @@
 }
 
 
+
 <folder-list params="FolderChange: FolderChange">
 
 </folder-list>
-    
+
 
     <h2>Activities</h2>
 
@@ -28,6 +29,13 @@
         <input type="text" id="txt" />
         <input type="button" value="Stop Activity!" onclick="stopCount()">
     </form> -->
+
+<h2>Folders</h2>
+
+<p>
+    <input type="text" id="newFolderName" data-bind="value: NewFolderText" />
+    <input type="button" value="Add folder" data-bind="click: fnAddNewFolder" />
+</p>
 
 
     @section Scripts {

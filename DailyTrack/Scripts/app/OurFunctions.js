@@ -48,6 +48,7 @@ function ActivitiesViewModel() {
     var self = this;
 
     self.NewActivityText = ko.observable();
+    self.NewFolderText = ko.observable();
     self.ActivityChange = ko.observable(0);
     self.FolderChange = ko.observable(0);
     
@@ -69,7 +70,21 @@ function ActivitiesViewModel() {
         })
     }
 
-   
+    self.fnAddNewFolder = function () {
+        var name = self.NewFolderText();
+        $.ajax({
+            url: "/api/folders",
+            method: "POST",
+            data: {
+                name: name
+            }
+        }).done(function (data) {
+         
+            self.NewFolderText("");
+        })
+    }
+
+
   
    
 
