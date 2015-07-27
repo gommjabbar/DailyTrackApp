@@ -56,19 +56,7 @@ function ActivitiesViewModel() {
     self.ChosenFolderId = ko.observable();
     self.SelectedFolder = ko.observable();
 
-    self.fnAddNewActivity = function () {
-        var name = self.NewActivityText();
-        $.ajax({
-            url: "/api/activities",
-            method: "POST",
-            data: {
-                name: name
-            }
-        }).done(function (data) {
-            self.ActivityChange(self.ActivityChange() + 1);
-            self.NewActivityText("");
-        })
-    }
+  
 
    self.fnAddNewFolder = function () {
         var name = self.NewFolderText();
@@ -83,7 +71,20 @@ function ActivitiesViewModel() {
             self.NewFolderText("");
         })
     }
-    
+
+   self.fnAddNewActivity = function () {
+       var name = self.NewActivityText();
+       $.ajax({
+           url: "/api/activities",
+           method: "POST",
+           data: {
+               name: name
+           }
+       }).done(function (data) {
+           self.ActivityChange(self.ActivityChange() + 1);
+           self.NewActivityText("");
+       })
+   }
 
   
    

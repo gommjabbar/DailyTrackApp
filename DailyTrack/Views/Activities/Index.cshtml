@@ -11,6 +11,18 @@
 </folder-list>
 
 
+<h2>Folders</h2>
+<div id="stacks">
+    <div id="lists" class="stack" role="navigation">
+          <p>
+              <input type="text" id="newFolderName" data-bind="value: NewFolderText" />
+              <input type="button" value="Add folder" data-bind="click: fnAddNewFolder" />
+          </p>
+     </div>
+</div>
+
+
+
     <h2>Activities</h2>
 
     <p>
@@ -30,12 +42,7 @@
         <input type="button" value="Stop Activity!" onclick="stopCount()">
     </form> -->
 
-<h2>Folders</h2>
 
-<p>
-    <input type="text" id="newFolderName" data-bind="value: NewFolderText" />
-    <input type="button" value="Add folder" data-bind="click: fnAddNewFolder" />
-</p>
 
 
     @section Scripts {

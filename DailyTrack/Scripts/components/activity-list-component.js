@@ -18,8 +18,7 @@
 
         self.fnGetActivities = function () {
             $.ajax({
-                //url: api/folders/ +self.SelectedFolder().id + "/activities
-                url: "/api/activities",
+                url: "api/folders/" +self.SelectedFolder().id + "/activities",
                 method: "GET",
                 data: {
                     completed: self.completed

@@ -9,8 +9,8 @@ using System.Web.Http;
 
 namespace DailyTrack.Controllers
 {
-    [RoutePrefix("api/activities")]
-    //[RoutePrefix("api/folders/{folderId:int}/activities")]
+    [RoutePrefix("api/folders/{folderId:int}/activities")]
+
     public class ActivitiesApiController : ApiController
     {
         private IActivityRepository activityRepository;
