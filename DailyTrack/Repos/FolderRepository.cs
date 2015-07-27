@@ -32,7 +32,7 @@ namespace DailyTrack.Repos
             context.Folders.Add(folder);
         }
 
-
+  
         public void Save()
         {
             context.SaveChanges();

@@ -10,6 +10,7 @@ using System.Web.Http;
 namespace DailyTrack.Controllers
 {
     [RoutePrefix("api/activities")]
+    //[RoutePrefix("api/folders/{folderId:int}/activities")]
     public class ActivitiesApiController : ApiController
     {
         private IActivityRepository activityRepository;
@@ -21,7 +22,7 @@ namespace DailyTrack.Controllers
 
         [HttpGet]
         [Route("")]
-        public IEnumerable<Activity> GetAllActivitities(bool completed)
+        public IEnumerable<Activity> GetAllActivitities(int folderId,bool completed)
         {
             return activityRepository
                 .GetActivities()

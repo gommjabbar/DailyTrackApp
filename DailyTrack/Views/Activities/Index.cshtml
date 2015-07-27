@@ -6,7 +6,7 @@
 
 
 
-<folder-list params="FolderChange: FolderChange">
+<folder-list params="FolderChange: FolderChange,SelectedFolder:SelectedFolder">
 
 </folder-list>
 
@@ -18,10 +18,10 @@
         <input type="button" value="Add Activity" data-bind="click: fnAddNewActivity" />
     </p>
     <h2>Your daily activities</h2>
-    <activity-list params="completed: false, ActivityChange: ActivityChange">
+    <activity-list params="completed: false, ActivityChange: ActivityChange,SelectedFolder:SelectedFolder">
     </activity-list>
     <h2>Completed activities</h2>
-    <activity-list params="completed: true, ActivityChange: ActivityChange">
+    <activity-list params="completed: true, ActivityChange: ActivityChange,SelectedFolder:SelectedFolder">
     </activity-list>
 
     <!--<form>

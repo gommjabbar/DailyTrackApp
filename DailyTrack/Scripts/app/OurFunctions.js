@@ -70,7 +70,7 @@ function ActivitiesViewModel() {
         })
     }
 
-    self.fnAddNewFolder = function () {
+   self.fnAddNewFolder = function () {
         var name = self.NewFolderText();
         $.ajax({
             url: "/api/folders",
@@ -83,7 +83,7 @@ function ActivitiesViewModel() {
             self.NewFolderText("");
         })
     }
-
+    
 
   
    

@@ -3,6 +3,7 @@
         var self = this;
         self.Folders = ko.observableArray();
         self.FolderChange = params.FolderChange;
+        self.SelectedFolder = params.SelectedFolder;
         self.FolderChange.subscribe(function () {
             self.fnGetFolders();
         })
@@ -17,10 +18,25 @@
                 var result = $.map(data, function (item, index) {
                     return new Folder(item);
                 });
+                self.SelectedFolder(result[0]);
                 self.Folders(result);
             })
         }
         self.fnGetFolders();
     },
+
+
+    self.getSelectedFolder = function() {
+        $.ajax({
+            url: "/api/folders"
+            method: "GET",
+        data:{
+            id: id,
+            name: name
+        }
+    }).done(function(data) {
+
+    }
+    }
     template: { fromFileType: 'html' }
 });

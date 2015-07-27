@@ -3,13 +3,17 @@
         var self = this;        
         self.Activities = ko.observableArray();
         self.completed = params.completed;
+        self.SelectedFolder = params.SelectedFolder;
         self.ActivityChange = params.ActivityChange;
         self.ActivityChange.subscribe(function () {
             self.fnGetActivities();
         })
-
+        self.SelectedFolder.subscribe(function(){
+            self.fnGetActivities();
+        })
         self.fnGetActivities = function () {
             $.ajax({
+                //url: api/folders/ +self.SelectedFolder().id + "/activities
                 url: "/api/activities",
                 method: "GET",
                 data: {
