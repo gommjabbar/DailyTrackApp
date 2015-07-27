@@ -17,25 +17,27 @@
         }
 
         self.fnGetActivities = function () {
-            $.ajax({
-                url: "api/folders/" +self.SelectedFolder().id + "/activities",
-                method: "GET",
-                data: {
-                    completed: self.completed
-                }
-            }).done(function (data) {
-                var result = $.map(data, function (item, index) {
-                    return new Activity(item);
-                });
-                self.Activities(result);
-            })
+            if (self.SelectedFolder() && self.SelectedFolder().id > 0) {
+                $.ajax({
+                    url: self.GetBaseRoute(),
+                    method: "GET",
+                    data: {
+                        completed: self.completed
+                    }
+                }).done(function (data) {
+                    var result = $.map(data, function (item, index) {
+                        return new Activity(item);
+                    });
+                    self.Activities(result);
+                })
+            }
         }
         self.fnGetActivities();
 
         self.fnCompletedChanged = function (activity) {
             var method = activity.Completed() ? 'PUT' : 'DELETE';
             $.ajax({
-                url: "/api/activities/" + activity.id + "/complete",
+                url: self.GetBaseRoute() + "/" + activity.id + "/complete",
                 method: method,
             }).done(function (data) {
                 self.ActivityChange(self.ActivityChange() + 1);

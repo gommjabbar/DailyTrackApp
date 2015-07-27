@@ -45,7 +45,7 @@ namespace DailyTrack.Controllers
 
         [HttpPost]
         [Route("")]
-        public Activity InsertActivity(Activity activity)
+        public Activity InsertActivity(int folderId, Activity activity)
         {
             if (activity == null)
                 throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.BadRequest));

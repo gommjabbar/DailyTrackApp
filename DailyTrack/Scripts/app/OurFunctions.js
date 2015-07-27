@@ -75,7 +75,7 @@ function ActivitiesViewModel() {
    self.fnAddNewActivity = function () {
        var name = self.NewActivityText();
        $.ajax({
-           url: "api/folders/{folderId:int}/activities",
+           url: "api/folders/"+ self.SelectedFolder().id +"/activities",
            method: "POST",
            data: {
                name: name
