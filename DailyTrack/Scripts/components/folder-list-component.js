@@ -8,6 +8,11 @@
             self.fnGetFolders();
         })
 
+        self.fnSelectedFolderChanged = function (folder) {
+            console.log(folder);
+            self.SelectedFolder(folder);
+        }
+
         self.fnGetFolders = function () {
             $.ajax({
                 url: "/api/folders",
