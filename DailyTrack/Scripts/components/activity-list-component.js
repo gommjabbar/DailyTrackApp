@@ -11,6 +11,11 @@
         self.SelectedFolder.subscribe(function(){
             self.fnGetActivities();
         })
+
+        self.GetBaseRoute = function () {
+            return "api/folders/" + self.SelectedFolder().id + "/activities";
+        }
+
         self.fnGetActivities = function () {
             $.ajax({
                 //url: api/folders/ +self.SelectedFolder().id + "/activities

@@ -26,17 +26,6 @@
     },
 
 
-    self.getSelectedFolder = function() {
-        $.ajax({
-            url: "/api/folders"
-            method: "GET",
-        data:{
-            id: id,
-            name: name
-        }
-    }).done(function(data) {
 
-    }
-    }
     template: { fromFileType: 'html' }
 });
