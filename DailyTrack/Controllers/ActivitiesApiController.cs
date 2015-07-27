@@ -26,7 +26,7 @@ namespace DailyTrack.Controllers
         {
             return activityRepository
                 .GetActivities()
-                .Where(activity => activity.Completed == completed);
+                .Where(activity => activity.Completed == completed && activity.FolderId== folderId);
         }
 
         [HttpPut]
