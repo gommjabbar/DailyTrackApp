@@ -9,8 +9,9 @@
         })
 
         self.fnSelectedFolderChanged = function (folder) {
-            console.log(folder);
+            //self.SelectedFolder().IsSelected(false);
             self.SelectedFolder(folder);
+            //self.SelectedFolder().IsSelected(true);
         }
 
         self.fnGetFolders = function () {
@@ -24,6 +25,7 @@
                     return new Folder(item);
                 });
                 self.SelectedFolder(result[0]);
+                //self.fnSelectedFolderChanged(result[0]);
                 self.Folders(result);
             })
         }
