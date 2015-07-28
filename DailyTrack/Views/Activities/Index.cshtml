@@ -25,10 +25,15 @@
 
     <h2>Activities</h2>
 
-    <p>
-        <input type="text" id="newActivityName" data-bind="value: NewActivityText" />
-        <input type="button" value="Add Activity" data-bind="click: fnAddNewActivity" />
-    </p>
+    <div class="row">
+        <div class="large-12"></div>
+           <input  class="small-9 columns"  type="text" id="newActivityName" data-bind="value: NewActivityText" />
+           <div class="small-3 columns" data-bind="click: fnAddNewActivity">
+              <span class="button">Add Activity</span>
+           </div>
+        </div>
+    </div>
+
     <h2>Your daily activities</h2>
     <activity-list params="completed: false, ActivityChange: ActivityChange,SelectedFolder:SelectedFolder">
     </activity-list>
