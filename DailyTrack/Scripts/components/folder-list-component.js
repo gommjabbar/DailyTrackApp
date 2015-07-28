@@ -32,8 +32,5 @@
         }
         self.fnGetFolders();
     },
-
-
-
     template: { fromFileType: 'html' }
 });
