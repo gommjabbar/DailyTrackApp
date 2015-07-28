@@ -2,6 +2,7 @@
     var self = this;
     self.id = data.id || 0;
     self.name = data.name || '';
+    self.IsSelected = ko.observable(false);
 }
 
 function Activity(data) {
@@ -10,6 +11,7 @@ function Activity(data) {
     self.Completed = ko.observable(data.completed || false);
     self.name = data.name || '';
     self.createDate = data.createDate || '';
+    self.SelectedActivity = ko.observable();
 
     //self.Completed.subscribe(function (newValue) {
     //    var method = newValue ? 'PUT' : 'DELETE';

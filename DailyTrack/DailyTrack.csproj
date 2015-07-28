@@ -292,6 +292,7 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\components\activity-details-component.js" />
     <Content Include="Scripts\components\activity-list-component.js" />
     <Content Include="Scripts\components\folder-add-component.js" />
     <Content Include="Scripts\components\folder-list-component.js" />
@@ -309,6 +310,7 @@
     <Content Include="Scripts\sammy-0.7.4.js" />
     <Content Include="Scripts\sammy-0.7.4.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="templates\activity-details-template.html" />
     <Content Include="templates\activity-list-template.html" />
     <Content Include="templates\folder-add-template.html" />
     <Content Include="templates\folder-list-template.html" />

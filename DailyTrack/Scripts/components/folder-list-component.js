@@ -9,10 +9,13 @@
         })
 
         self.fnSelectedFolderChanged = function (folder) {
-            //self.SelectedFolder().IsSelected(false);
-            self.SelectedFolder(folder);
             self.FolderChange(self.FolderChange() + 1);
-            //self.SelectedFolder().IsSelected(true);
+            if (self.SelectedFolder == null)
+                self.SelectedFolder().IsSelected(false);
+            else {
+                self.SelectedFolder(folder);
+                self.SelectedFolder().IsSelected(true);
+            }
         }
 
         self.fnGetFolders = function () {
