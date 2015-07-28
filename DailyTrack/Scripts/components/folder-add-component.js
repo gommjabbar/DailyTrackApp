@@ -4,20 +4,23 @@
         self.NewFolderText = ko.observable();
         self.Folders = ko.observableArray();
         self.FolderChange = params.FolderChange;
-      
 
-self.fnAddNewFolder = function () {
-    var name = self.NewFolderText();
-    $.ajax({
-        url: "/api/folders",
-        method: "POST",
-        data: {
-            name: name
+        self.FolderChange.subscribe(function () {
+            self.fnGetFolders();
+        })
+
+        self.fnAddNewFolder = function () {
+            var name = self.NewFolderText();
+            $.ajax({
+                url: "/api/folders",
+                method: "POST",
+                data: {
+                    name: name
+                }
+            }).done(function (data) {
+                self.NewFolderText("");
+            })
         }
-    }).done(function (data) {
-        self.NewFolderText("");
-    })
-}
     },
     template: { fromFileType: 'html' }
 });

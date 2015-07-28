@@ -73,7 +73,7 @@ function ActivitiesViewModel() {
                 name: name
             }
         }).done(function (data) {
-         
+            self.FolderChange(self.FolderChange() + 1);
             self.NewFolderText("");
         })
     }
