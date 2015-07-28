@@ -51,7 +51,7 @@ function ActivitiesViewModel() {
     self.NewFolderText = ko.observable();
     self.ActivityChange = ko.observable(0);
     self.FolderChange = ko.observable(0);
-    self.ConpletedActivities = ko.observable();
+
     
     self.folders = ["Inbox"];
     self.ChosenFolderId = ko.observable();
