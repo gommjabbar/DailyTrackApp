@@ -56,9 +56,14 @@ function ActivitiesViewModel() {
     self.folders = ["Inbox"];
     self.ChosenFolderId = ko.observable();
     self.SelectedFolder = ko.observable();
-
+    self.ShowCompletedActivities = ko.observable(false);
+    self.ShowCompletedButtonText = ko.computed(function () {
+        return self.ShowCompletedActivities() == true ? "Hide" : "Show";
+    })
   
-
+    self.fnShowHideCompletedActivities = function () {
+        self.ShowCompletedActivities(!self.ShowCompletedActivities());
+    }
    self.fnAddNewFolder = function () {
         var name = self.NewFolderText();
         $.ajax({

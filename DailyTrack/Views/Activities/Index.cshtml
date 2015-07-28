@@ -32,9 +32,13 @@
     <h2>Your daily activities</h2>
     <activity-list params="completed: false, ActivityChange: ActivityChange,SelectedFolder:SelectedFolder">
     </activity-list>
-    <h2>Completed activities</h2>
-    <activity-list params="completed: true, ActivityChange: ActivityChange,SelectedFolder:SelectedFolder">
-    </activity-list>
+    <button data-bind="text: ShowCompletedButtonText, click: fnShowHideCompletedActivities">
+    </button>
+    <div data-bind="if: ShowCompletedActivities, visible: ShowCompletedActivities">
+        <h2>Completed activities</h2>
+        <activity-list params="completed: true, ActivityChange: ActivityChange,SelectedFolder:SelectedFolder">
+        </activity-list>    
+    </div>
 
     <!--<form>
         <input type="button" value="Start Activity!" onclick="doTimer()">

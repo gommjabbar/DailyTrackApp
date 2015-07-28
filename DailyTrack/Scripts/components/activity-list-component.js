@@ -13,7 +13,7 @@
         })
 
         self.GetBaseRoute = function () {
-            return "api/folders/" + self.SelectedFolder().id+ "/activities";
+            return "/api/folders/" + self.SelectedFolder().id+ "/activities";
         }
 
         self.fnGetActivities = function () {
