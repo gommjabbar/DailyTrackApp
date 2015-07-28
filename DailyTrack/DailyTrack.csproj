@@ -262,6 +262,9 @@
     <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\foundation.css" />
+    <Content Include="Content\foundation.min.css" />
+    <Content Include="Content\normalize.css" />
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -292,6 +295,7 @@
     <Content Include="Scripts\components\activity-list-component.js" />
     <Content Include="Scripts\components\folder-add-component.js" />
     <Content Include="Scripts\components\folder-list-component.js" />
+    <Content Include="Scripts\foundation.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\knockout-3.3.0.debug.js" />

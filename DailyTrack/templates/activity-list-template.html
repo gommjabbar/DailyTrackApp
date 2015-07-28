@@ -8,16 +8,17 @@
 
     <div data-bind="if:false" visible:CompletedActivities></div>
     <div data-bind="foreach: Activities">
-        <div class="row"></div>
-        <div class="col-lg-3">
-            <input type="checkbox" 
-                data-bind="
+        <div class="row">
+            <div class="col-lg-3">
+                <input type="checkbox"
+                       data-bind="
                     checked: Completed,
-                    click: $parent.fnCompletedChanged" /> 
+                    click: $parent.fnCompletedChanged" />
+            </div>
+            <div class="col-lg-3" data-bind="text: id"></div>
+            <div class="col-lg-3" data-bind="text: name"></div>
+            <div class="col-lg-3" data-bind="text: createDate"></div>
         </div>
-        <div class="col-lg-3" data-bind="text: id"></div>
-        <div class="col-lg-3" data-bind="text: name"></div>
-        <div class="col-lg-3" data-bind="text: createDate"></div>
     </div>
 
         
