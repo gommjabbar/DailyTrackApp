@@ -4,6 +4,7 @@
         self.Activities = ko.observableArray();
         self.completed = params.completed;
         self.SelectedFolder = params.SelectedFolder;
+        self.SelectedActivity = params.SelectedActivity;
         self.ActivityChange = params.ActivityChange;
         self.ActivityChange.subscribe(function () {
             self.fnGetActivities();
@@ -12,6 +13,20 @@
             self.fnGetActivities();
         })
 
+
+        self.SelectedActivity.subscribe(function () {
+            $parent.fnShowActivityDetails();
+        })
+
+        self.fnSelectedActivityChanged = function (activity) {
+
+            if (self.SelectedActivity())
+                self.SelectedActivity().IsSelectedActivity(false);
+
+            self.SelectedActivity(activity);
+            self.SelectedActivity().IsSelectedActivity(true);
+
+        }
         self.GetBaseRoute = function () {
             return "/api/folders/" + self.SelectedFolder().id+ "/activities";
         }

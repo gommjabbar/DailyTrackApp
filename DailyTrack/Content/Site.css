@@ -37,3 +37,6 @@ textarea {
 .folder-selected{
     background-color:blue;
 }
+.activity-selected{
+    background-color:red;
+}

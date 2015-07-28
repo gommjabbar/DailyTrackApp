@@ -14,7 +14,10 @@ function Activity(data) {
     self.Completed = ko.observable(data.completed || false);
     self.name = data.name || '';
     self.createDate = data.createDate || '';
-    self.SelectedActivity = ko.observable();
+    self.IsSelectedActivity = ko.observable(false);
+    self.SelectedActivityCssClass = ko.computed(function () {
+        return self.IsSelectedActivity() ? 'activity-selected' : 'activity-not-selected';
+    })
 
     //self.Completed.subscribe(function (newValue) {
     //    var method = newValue ? 'PUT' : 'DELETE';
@@ -61,6 +64,7 @@ function ActivitiesViewModel() {
     self.folders = ["Inbox"];
     self.ChosenFolderId = ko.observable();
     self.SelectedFolder = ko.observable();
+    self.SelectedActivity = ko.observable();
     self.ShowCompletedActivities = ko.observable(false);
     self.ShowCompletedButtonText = ko.computed(function () {
         return self.ShowCompletedActivities() == true ? "Hide" : "Show";
