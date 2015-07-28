@@ -3,6 +3,9 @@
     self.id = data.id || 0;
     self.name = data.name || '';
     self.IsSelected = ko.observable(false);
+    self.SelectedCssClass = ko.computed(function () {
+        return self.IsSelected() ? 'folder-selected' : 'folder-not-selected';
+    })
 }
 
 function Activity(data) {

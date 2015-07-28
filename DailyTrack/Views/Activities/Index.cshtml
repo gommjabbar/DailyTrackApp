@@ -4,13 +4,11 @@
     ViewBag.Title = "Index";
 }
 
-
+<form>
+    <div class="row">
 
 <folder-list params="FolderChange: FolderChange,SelectedFolder:SelectedFolder">
-    <div data-bind="css: IsSelected">
-        <div data-bind="style: { color: IsSelected() < 0 ? 'blue' : 'black' }">
-        </div>
-    </div>
+    
 </folder-list>
 
 
@@ -47,7 +45,8 @@
         </activity-list>    
     </div>
      
-  
+  </div>
+</form>
 
     <!--<form>
         <input type="button" value="Start Activity!" onclick="doTimer()">

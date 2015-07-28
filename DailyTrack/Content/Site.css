@@ -34,3 +34,6 @@ textarea {
         padding: 10px 15px;
     }
 }
+.folder-selected{
+    background-color:blue;
+}

@@ -1,24 +1,24 @@
 ﻿<div class="form-group">
-    <div clsss="row">
-        <div class="col-lg-3 col-md-3">Completed</div>
-        <div class="col-lg-3 col-md-3">Id</div>
-        <div class="col-lg-3 col-md-3">Activity</div>
-        <div class="col-lg-3 col-md-3">StartActivity</div>
+    <div class="row">
+        <div class="large-6">
+            <div class="large-3 column">Completed</div>
+            <div class="large-3 column">Activity</div>
+        </div>
     </div>
-
     <div data-bind="if:false" visible:CompletedActivities></div>
     <div data-bind="foreach: Activities">
         <div class="row">
-            <div class="col-lg-3">
-                <input type="checkbox"
-                       data-bind="
+            <div class="large-6">
+                <div class="large-3 column">
+                    <input type="checkbox"
+                           data-bind="
                     checked: Completed,
                     click: $parent.fnCompletedChanged" />
+                </div>
+                <div class="large-3 column" data-bind="text: name"></div>
+
             </div>
-            <div class="col-lg-3" data-bind="text: id"></div>
-            <div class="col-lg-3" data-bind="text: name"></div>
-            <div class="col-lg-3" data-bind="text: createDate"></div>
-        </div>
+            </div>
     </div>
 
         
