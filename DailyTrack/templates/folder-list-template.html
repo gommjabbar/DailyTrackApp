@@ -2,5 +2,8 @@
     <ul class="folders" data-bind="foreach: Folders">
 
         <li data-bind="text: name, click: $parent.fnSelectedFolderChanged"></li>
-
+        <div data-bind="css: IsSelected">
+            <div data-bind="style: { color: IsSelected() < 0 ? 'blue' : 'black' }">
+            </div>
+        </div>
     </ul>

@@ -7,7 +7,10 @@
 
 
 <folder-list params="FolderChange: FolderChange,SelectedFolder:SelectedFolder">
-
+    <div data-bind="css: IsSelected">
+        <div data-bind="style: { color: IsSelected() < 0 ? 'blue' : 'black' }">
+        </div>
+    </div>
 </folder-list>
 
 
@@ -25,10 +28,14 @@
 
     <h2>Activities</h2>
 
-    <p>
-        <input type="text" id="newActivityName" data-bind="value: NewActivityText" />
-        <input type="button" value="Add Activity" data-bind="click: fnAddNewActivity" />
-    </p>
+    <div class="row">
+        <div class="large-12">
+            <input  class ="small-9 columns" type="text" id="newActivityName" data-bind="value: NewActivityText" />
+            <div class="small-3 columns" data-bind="click: fnAddNewActivity">
+                 <span class="button">Add Activity</span>
+            </div>
+         </div>
+    </div>
     <h2>Your daily activities</h2>
     <activity-list params="completed: false, ActivityChange: ActivityChange,SelectedFolder:SelectedFolder">
     </activity-list>
@@ -39,6 +46,8 @@
         <activity-list params="completed: true, ActivityChange: ActivityChange,SelectedFolder:SelectedFolder">
         </activity-list>    
     </div>
+     
+  
 
     <!--<form>
         <input type="button" value="Start Activity!" onclick="doTimer()">
