@@ -1,10 +1,11 @@
 ﻿<div class='col-lg-9'>
-    <div class='col-lg-2' data-bind="if: DisplayActivityDetails, visible: DisplayActivityDetails">
-        <div data-bind="with: SelectedActivity">
-            Activity details:
-            <div class="row">
-                <div class='col-lg-6'>Activity:</div>
-                <div class='col-lg-6 '>
-                    <input type='text' class="form-control" data-bind="value:Name" />
-                </div>
+    <div data-bind="with: SelectedActivity">
+        Activity details:
+        <div class="row">
+            <div class='col-lg-6'>Activity:</div>
+            <div class='col-lg-6 '>
+                <input type='text' class="form-control" data-bind="value:name" />
             </div>
+        </div>
+    </div>
+</div>

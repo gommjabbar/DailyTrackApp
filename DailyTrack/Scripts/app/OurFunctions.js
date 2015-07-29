@@ -70,15 +70,15 @@ function ActivitiesViewModel() {
     self.ShowCompletedButtonText = ko.computed(function () {
         return self.ShowCompletedActivities() == true ? "Hide" : "Show";
     })
-    
-
-    self.ShowActivityDetailsButtonText = ko.computed(function () {
-        return self.SelectedActivity() == true ? "HideDetails" : "ShowDetails";
+    self.SelectedActivity.subscribe(function (newSelectedActivity) {
+        if (newSelectedActivity) {
+            self.ShowActivityDetails(true);
+        }
+        else {
+            self.ShowActivityDetails(false);
+        }
     })
 
-    self.fnShowHideActivityDetails = function () {
-        self.ShowActivityDetails(!self.ShowActivityDetails());
-    }
     self.fnShowHideCompletedActivities = function () {
         self.ShowCompletedActivities(!self.ShowCompletedActivities());
     }
