@@ -7,47 +7,55 @@
 <form>
     <div class="row">
         <div>
+            <div class="large-3 columns">
             <folder-list params="FolderChange: FolderChange,SelectedFolder:SelectedFolder">
 
             </folder-list>
 
 
-            <h2>Folders</h2>
-            <div class="row">
-                <div class="large-12">
-                    <input class="small-9 columns" type="text" id="newFolderName" data-bind="value: NewFolderText" />
-                    <div class="small-3 columns" data-bind="click: fnAddNewFolder">
-                        <span class="button">Add folder</span>
+         
+              
+                    
+                        <div class="small-9 columns"> <input type="text" placeholder="New folder" id="newFolderName" data-bind="value: NewFolderText" /></div>
+                        <div class="small-3 columns" data-bind=" click:fnAddNewFolder">
+                            <span class="button tiny">+</span>
+                        </div>
+       
+
                     </div>
                 </div>
             </div>
-        </div>
-        <div>
-            <h2>Activities</h2>
+      
+  
+        
+     <div class="row">
+         <div>
+                <div class="large-6 columns">
 
-            <div class="row">
-                <div class="large-12">
-                    <input class="small-9 columns" type="text" id="newActivityName" data-bind="value: NewActivityText" />
-                    <div class="small-3 columns" data-bind="click: fnAddNewActivity">
-                        <span class="button">Add Activity</span>
+                        <input class="large-4 columns" type="text" placeholder="New Activity" id="newActivityName" data-bind="value: NewActivityText " />
+                        <div class="large-2 columns" data-bind="click: fnAddNewActivity">
+                            <span class="button tiny">+</span>
+                        </div>
+
+
+                        <h2>Your daily activities</h2>
+                        <activity-list params="completed: false, ActivityChange: ActivityChange,SelectedFolder:SelectedFolder,SelectedActivity:SelectedActivity">
+                        </activity-list>
+
+                        <button data-bind="text: ShowCompletedButtonText, click: fnShowHideCompletedActivities"></button>
+                        <div data-bind="if: ShowCompletedActivities, visible: ShowCompletedActivities">
+                            <h2>Completed activities</h2>
+                            <activity-list params="completed: true, ActivityChange: ActivityChange,SelectedFolder:SelectedFolder,SelectedActivity:SelectedActivity">
+                            </activity-list>
+                        </div>
                     </div>
+              </div>
+        </div>
+          
+                <div data-bind="if: ShowActivityDetails,visible:ShowActivityDetails " class="large-3">
+                    <activity-details params="SelectedActivity: SelectedActivity"></activity-details>
                 </div>
-            </div>
-            <h2>Your daily activities</h2>
-            <activity-list params="completed: false, ActivityChange: ActivityChange,SelectedFolder:SelectedFolder,SelectedActivity:SelectedActivity">
-            </activity-list>
-
-            <button data-bind="text: ShowCompletedButtonText, click: fnShowHideCompletedActivities"></button>
-            <div data-bind="if: ShowCompletedActivities, visible: ShowCompletedActivities">
-                <h2>Completed activities</h2>
-                <activity-list params="completed: true, ActivityChange: ActivityChange,SelectedFolder:SelectedFolder,SelectedActivity:SelectedActivity">
-                </activity-list>
-            </div>
-        </div>
-        <div data-bind="if: ShowActivityDetails,visible:ShowActivityDetails " class="large-3">
-            <activity-details params="SelectedActivity: SelectedActivity"></activity-details>
-        </div>
-  </div>
+           
 </form>
 
     <!--<form>
