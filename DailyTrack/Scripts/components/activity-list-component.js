@@ -14,9 +14,7 @@
         })
 
 
-        self.SelectedActivity.subscribe(function () {
-            $parent.fnShowActivityDetails();
-        })
+        
 
         self.fnSelectedActivityChanged = function (activity) {
 
@@ -43,6 +41,7 @@
                     var result = $.map(data, function (item, index) {
                         return new Activity(item);
                     });
+                    //self.SelectedActivity(result[]);
                     self.Activities(result);
                 })
             }

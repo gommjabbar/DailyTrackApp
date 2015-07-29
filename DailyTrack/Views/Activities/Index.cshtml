@@ -35,13 +35,13 @@
          </div>
     </div>
     <h2>Your daily activities</h2>
-    <activity-list params="completed: false, ActivityChange: ActivityChange,SelectedFolder:SelectedFolder">
+    <activity-list params="completed: false, ActivityChange: ActivityChange,SelectedFolder:SelectedFolder,SelectedActivity:SelectedActivity">
     </activity-list>
     <button data-bind="text: ShowCompletedButtonText, click: fnShowHideCompletedActivities">
     </button>
     <div data-bind="if: ShowCompletedActivities, visible: ShowCompletedActivities">
         <h2>Completed activities</h2>
-        <activity-list params="completed: true, ActivityChange: ActivityChange,SelectedFolder:SelectedFolder">
+        <activity-list params="completed: true, ActivityChange: ActivityChange,SelectedFolder:SelectedFolder,SelectedActivity:SelectedActivity">
         </activity-list>    
     </div>
      
