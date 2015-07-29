@@ -37,6 +37,11 @@
     <h2>Your daily activities</h2>
     <activity-list params="completed: false, ActivityChange: ActivityChange,SelectedFolder:SelectedFolder,SelectedActivity:SelectedActivity">
     </activity-list>
+
+    <div data-bind="if:SelectedActivity, visible:ShowActivityDetails">
+        <button data-bind="text: ShowActivityDetailsButtonText, click: fnShowHideActivityDetails"></button>
+    </div>
+    
     <button data-bind="text: ShowCompletedButtonText, click: fnShowHideCompletedActivities">
     </button>
     <div data-bind="if: ShowCompletedActivities, visible: ShowCompletedActivities">

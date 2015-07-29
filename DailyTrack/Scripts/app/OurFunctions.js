@@ -65,17 +65,18 @@ function ActivitiesViewModel() {
     self.ChosenFolderId = ko.observable();
     self.SelectedFolder = ko.observable();
     self.SelectedActivity = ko.observable(false);
+    self.ShowActivityDetails = ko.observable(false);
     self.ShowCompletedActivities = ko.observable(false);
     self.ShowCompletedButtonText = ko.computed(function () {
         return self.ShowCompletedActivities() == true ? "Hide" : "Show";
     })
     
 
-    self.ShowActivityDetails = ko.computed(function () {
-        return self.SelectedActivity() == true ? "ShowDetails" : "HideDetails";
+    self.ShowActivityDetailsButtonText = ko.computed(function () {
+        return self.SelectedActivity() == true ? "HideDetails" : "ShowDetails";
     })
 
-    self.ShowHideActivityDetails = function () {
+    self.fnShowHideActivityDetails = function () {
         self.ShowActivityDetails(!self.ShowActivityDetails());
     }
     self.fnShowHideCompletedActivities = function () {
