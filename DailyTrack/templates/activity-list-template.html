@@ -1,26 +1,16 @@
 ﻿<div class="form-group">
-    <div class="row">
-        <div class="large-6">
-            <div class="large-3 column">Completed</div>
-            <div class="large-3 column">Activity</div>
-        </div>
-    </div>
-    <div data-bind="if:false" visible:CompletedActivities></div>
+    <div data-bind="if:false" visible:completedactivities></div>
     <div data-bind="foreach: Activities">
         <div class="row">
-            <div class="large-6">
-                <div class="large-3 column">
+            <div class="large-6 column">
+                <div class="small-1 column">
                     <input type="checkbox"
                            data-bind="
                     checked: Completed,
                     click: $parent.fnCompletedChanged" />
                 </div>
-                <div class="large-3 column" data-bind="text: name ,click:$parent.fnSelectedActivityChanged,css: SelectedActivityCssClass"></div>
-
+                <div class="small-5 column" data-bind="text: name ,click:$parent.fnSelectedActivityChanged,css: SelectedActivityCssClass"></div>
             </div>
-            </div>
+        </div>
     </div>
-
-        
-   
 </div>
