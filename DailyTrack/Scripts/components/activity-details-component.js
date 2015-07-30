@@ -3,6 +3,7 @@
         var self = this;
         self.SelectedActivity = params.SelectedActivity;
         self.SelectedFolder = params.SelectedFolder;
+        self.ActivityChange = params.ActivityChange;
 
         
         self.fnRemoveActivity = function () {
@@ -10,6 +11,7 @@
                 url: "/api/folders/" + self.SelectedFolder().id + "/activities/" + self.SelectedActivity().id,
                 method: "Delete",
             }).done(function (result) {
+                self.ActivityChange(self.ActivityChange() + 1);
             })
         }
     },
