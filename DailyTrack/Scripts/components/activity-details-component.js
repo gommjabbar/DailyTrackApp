@@ -2,6 +2,7 @@
     viewModel: function (params) {
         var self = this;
         self.SelectedActivity = params.SelectedActivity;
+        self.SelectedFolder = params.SelectedFolder;
 
         
         self.fnRemoveActivity = function () {
