@@ -68,27 +68,35 @@ namespace DailyTrack.Repos
 
 
         public ActivityTime StartActivity(int id)
-        {    var activity = context.Activities.Find(id);
-
-                 activity.IsStarted = true;
-                 activity.StartTime = DateTimeOffset.Now;
-                 activity.EndTime = null;
-                 Save();
-                 
-
-        }
-
-        public  ActivityTime EndActivity(int id)
         {
             var activity = context.Activities.Find(id);
 
-                activity.IsStarted = false;
-                activity.StartTime = null;
-                activity.EndTime = DateTimeOffset.Now;
-            
-                Save();
+            activity.IsStarted = true;
+            var at = new ActivityTime()
+            {
+                StartTime = DateTime.Now,
+                EndTime = null,
+                ActivityId = id
+            };
+            activity.ActivityTimes.Add(at);
+            Save();
+            return at;
+
         }
-      
+
+        public ActivityTime EndActivity(int id)
+        {
+            var activity = context.Activities.Find(id);
+            var startedActivityTime = activity.ActivityTimes.
+                FirstOrDefault(at => at.EndTime == null);
+            activity.IsStarted = false;
+
+            startedActivityTime.EndTime = DateTime.Now;
+
+            Save();
+            return startedActivityTime;
+        }
+
 
 
         public void Save()

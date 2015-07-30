@@ -38,15 +38,15 @@ namespace DailyTrack.Controllers
 
 
 
-        [HttpPut]
-        [Route("{id:int}")]
+        [HttpPost]
+        [Route("{id:int}/start")]
         public ActivityTime StartActivity(int id)
         {
             return activityRepository.StartActivity(id);
         }
 
         [HttpPost]
-        [Route("{id:int}/complete")]
+        [Route("{id:int}/end")]
         public ActivityTime EndActivity(int id)
         {
             return activityRepository.EndActivity(id);
