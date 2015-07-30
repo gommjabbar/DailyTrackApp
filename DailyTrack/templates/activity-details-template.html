@@ -1,13 +1,26 @@
 ﻿<div>
     <div data-bind="with: SelectedActivity">
         <div class="row">
-            <div class='large-12 column'>
-                <output type='text' class="form-control" data-bind="value:name" />
-                <div data-bind="click: $parent.fnRemoveActivity">
-                    <span class="button tiny">Delete</span>
+         
+                <div class="row">
+                    <div class="small-2 column">Id:</div>
+                   <div class="small-10 columnn" data-bind="text: id"></div>
+               </div>
+                <div class="row">
+                  <output type='text' class="form-control" data-bind="value:name" />
                  </div>
-            </div>
+                <div class="row">
+                    <div class="small-6 column">StartActivity:</div>
+                  <div class="small-6 column" data-bind="text: createDate"></div>
+                </div>
+         
+      </div>
+          <div class="row">
+         <div data-bind="click: $parent.fnRemoveActivity">
+            <span class="button tiny">Delete</span>
+          </div>
         </div>
+       
     </div>
 
     
