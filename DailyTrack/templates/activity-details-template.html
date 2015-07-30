@@ -13,7 +13,17 @@
                     <div class="small-6 column">StartActivity:</div>
                   <div class="small-6 column" data-bind="text: createDate"></div>
                 </div>
-         
+               
+            <div class="row">
+                <div class="small-2 columns" data-bind="click: fnStartActivity">
+                    <span class="button tiny">Start</span>
+                </div>
+                <div class="small-2 columns" data-bind="click: fnEndActivity">
+                    <span class="button tiny">End</span>
+                </div>
+            </div>
+
+
       </div>
           <div class="row">
          <div data-bind="click: $parent.fnRemoveActivity">

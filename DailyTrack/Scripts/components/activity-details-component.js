@@ -10,7 +10,7 @@
         self.fnStartActivity = function () {
             $.ajax({
                 url: "/api/folders/" + self.SelectedFolder().id + "/activities/" + self.SelectedActivity().id,
-                method:"Put",
+                method:"Post",
             }).done(function(result){
 
             })
@@ -20,7 +20,7 @@
         self.fnEndActivity = function () {
             $.ajax({
                 url: "/api/folders/" + self.SelectedFolder().id + "/activities/" + self.SelectedActivity().id,
-                method: "Put",
+                method: "Post",
 
             }).doen(function (result) {
 
