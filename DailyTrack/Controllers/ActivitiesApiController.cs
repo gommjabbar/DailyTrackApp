@@ -54,5 +54,17 @@ namespace DailyTrack.Controllers
             activityRepository.Save();
             return activity;
         }
+
+
+        
+        [HttpDelete]
+        [Route("")]
+        public void DeleteActivity(int Id)
+        {
+
+            activityRepository.DeleteActivity(Id);
+          
+        }
+
     }
 }

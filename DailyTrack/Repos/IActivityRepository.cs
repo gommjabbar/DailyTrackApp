@@ -13,5 +13,6 @@ namespace DailyTrack.Repos
         Activity UncompleteActivity(int id);
         void Save();
         void UpdateActivity(Activity activity);
+  
     }
 }

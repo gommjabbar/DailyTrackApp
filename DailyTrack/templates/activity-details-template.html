@@ -3,7 +3,12 @@
         <div class="row">
             <div class='large-12 column'>
                 <output type='text' class="form-control" data-bind="value:name" />
+                <div data-bind="click: $parent.fnRemoveActivity">
+                    <span class="button tiny">Delete</span>
+                 </div>
             </div>
         </div>
     </div>
+
+    
 </div>
