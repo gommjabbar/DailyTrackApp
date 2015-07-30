@@ -11,10 +11,7 @@
         })
         self.SelectedFolder.subscribe(function(){
             self.fnGetActivities();
-        })
-
-
-        
+        })        
 
         self.fnSelectedActivityChanged = function (activity) {
 

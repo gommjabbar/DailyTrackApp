@@ -11,6 +11,8 @@ namespace DailyTrack.Repos
         void InsertActivity(Activity activity);
         Activity CompleteActivity(int id);
         Activity UncompleteActivity(int id);
+        ActivityTime StartActivity(int id);
+        ActivityTime EndActivity(int id);
         void Save();
         void UpdateActivity(Activity activity);
   

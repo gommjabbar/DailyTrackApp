@@ -5,7 +5,28 @@
         self.SelectedFolder = params.SelectedFolder;
         self.ActivityChange = params.ActivityChange;
 
-        
+
+
+        self.fnStartActivity = function () {
+            $.ajax({
+                url: "/api/folders/" + self.SelectedFolder().id + "/activities/" + self.SelectedActivity().id,
+                method:"Put",
+            }).done(function(result){
+
+            })
+            
+        }
+
+        self.fnEndActivity = function () {
+            $.ajax({
+                url: "/api/folders/" + self.SelectedFolder().id + "/activities/" + self.SelectedActivity().id,
+                method: "Put",
+
+            }).doen(function (result) {
+
+            })
+        }
+
         self.fnRemoveActivity = function () {
             $.ajax({
                 url: "/api/folders/" + self.SelectedFolder().id + "/activities/" + self.SelectedActivity().id,
@@ -14,6 +35,7 @@
                 self.ActivityChange(self.ActivityChange() + 1);
             })
         }
+
     },
     template: { fromFileType: 'html' }
 });

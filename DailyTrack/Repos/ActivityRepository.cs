@@ -65,13 +65,32 @@ namespace DailyTrack.Repos
             return activity;
         }
 
-        public static TimeSpan GetCurrentTime(string date)
-        {
-            DateTime d = Convert.ToDateTime(date);
-            TimeZone zone = TimeZone.CurrentTimeZone;
-            TimeSpan local = zone.GetUtcOffset(d);
-            return local;
+
+
+        public ActivityTime StartActivity(int id)
+        {    var activity = context.Activities.Find(id);
+
+                 activity.IsStarted = true;
+                 activity.StartTime = DateTimeOffset.Now;
+                 activity.EndTime = null;
+                 Save();
+                 
+
         }
+
+        public  ActivityTime EndActivity(int id)
+        {
+            var activity = context.Activities.Find(id);
+
+                activity.IsStarted = false;
+                activity.StartTime = null;
+                activity.EndTime = DateTimeOffset.Now;
+            
+                Save();
+        }
+      
+
+
         public void Save()
         {
             context.SaveChanges();
