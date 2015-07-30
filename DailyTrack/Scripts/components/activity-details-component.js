@@ -7,7 +7,7 @@
         
         self.fnRemoveActivity = function () {
             $.ajax({
-                url: "api/folders/" + self.SelectedFolder().id + "/activities" + self.SelectedActivity().id,
+                url: "/api/folders/" + self.SelectedFolder().id + "/activities/" + self.SelectedActivity().id,
                 method: "Delete",
             }).done(function (result) {
             })

@@ -22,11 +22,11 @@ namespace DailyTrack.Controllers
 
         [HttpGet]
         [Route("")]
-        public IEnumerable<Activity> GetAllActivitities(int folderId,bool completed)
+        public IEnumerable<Activity> GetAllActivitities(int folderId, bool completed)
         {
             return activityRepository
                 .GetActivities()
-                .Where(activity => activity.Completed == completed && activity.FolderId== folderId);
+                .Where(activity => activity.Completed == completed && activity.FolderId == folderId);
         }
 
         [HttpPut]
@@ -49,21 +49,18 @@ namespace DailyTrack.Controllers
         {
             if (activity == null)
                 throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.BadRequest));
-            
+
             activityRepository.InsertActivity(activity);
             activityRepository.Save();
             return activity;
         }
 
-
-        
         [HttpDelete]
-        [Route("")]
-        public void DeleteActivity(int Id)
+        [Route("{id:int}")]
+        public void DeleteActivity(int id)
         {
-
-            activityRepository.DeleteActivity(Id);
-          
+            activityRepository.DeleteActivity(id);
+            activityRepository.Save();
         }
 
     }
