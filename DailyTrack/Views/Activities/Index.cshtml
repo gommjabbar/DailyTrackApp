@@ -3,25 +3,36 @@
 @{
     ViewBag.Title = "Index";
 }
-
+<style>
+p.padding {
+    padding-left: 25px 50px;
+}
+</style>
 <form>
     <div class="row"><div class="large-12 column"><h1>   </h1></div></div>
-    <div class="row">
+   <body>     <div class="row">
+    <p class="padding">
         <div class="large-3 columns">
             <folder-list params="FolderChange: FolderChange,SelectedFolder:SelectedFolder">
             </folder-list>
-            <div class="small-10 columns"> <input type="text" placeholder="New folder" id="newFolderName" data-bind="value: NewFolderText"/></div>
-            <div class="small-2 columns" data-bind=" click:fnAddNewFolder">
-                <span class="button tiny">+</span>
+            <div class="row">
+                <div class="small-10 columns"> <input type="text" placeholder="New folder" id="newFolderName" data-bind="value: NewFolderText" /></div>
+                <div class="small-2 columns" data-bind=" click:fnAddNewFolder">
+                    <span class="button tiny">+</span>
+                </div>
             </div>
         </div>
+    </p>
+   
+
 
         <div class="large-6 columns">
-            <input class="large-11 columns" type="text" placeholder="New Activity" id="newActivityName" data-bind="value: NewActivityText " />
-            <div class="large-1 columns" data-bind="click: fnAddNewActivity">
+            <div class="row">
+              <input class="small-10 columns" type="text" placeholder="New Activity" id="newActivityName" data-bind="value: NewActivityText " />
+              <div class="small-2 columns" data-bind="click: fnAddNewActivity">
                 <span class="button tiny">+</span>
+              </div>
             </div>
-
             <activity-list params="completed: false, ActivityChange: ActivityChange,SelectedFolder:SelectedFolder,SelectedActivity:SelectedActivity">
             </activity-list>
             <button class="button tiny" data-bind="text: ShowCompletedButtonText, click: fnShowHideCompletedActivities"></button>

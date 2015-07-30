@@ -2,7 +2,7 @@
     <div data-bind="if:false" visible:completedactivities></div>
     <div data-bind="foreach: Activities">
         <div class="row">
-            <div class="large-6 column">
+            
                 <div class="small-1 column">
                     <input type="checkbox"
                            data-bind="
@@ -10,7 +10,7 @@
                     click: $parent.fnCompletedChanged" />
                 </div>
                 <div class="small-11 column" data-bind="text: name ,click:$parent.fnSelectedActivityChanged,css: SelectedActivityCssClass"></div>
-            </div>
+
         </div>
     </div>
 </div>
