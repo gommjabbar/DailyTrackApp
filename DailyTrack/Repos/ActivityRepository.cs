@@ -22,6 +22,13 @@ namespace DailyTrack.Repos
             return context.Activities.ToList();
         }
 
+        //public IEnumerable<ActivityTime> GetActivityTimes()
+      //  {
+        //    var activity = context.Activities.Find(id);
+         //   return context.Activities.ToList();
+
+       // }
+
         public Activity GetActivityById(int? id)
         {
             return context.Activities.Find(id);
@@ -53,6 +60,15 @@ namespace DailyTrack.Repos
             var activity = context.Activities.Find(id);
             activity.Completed = true;
             activity.CompletedAt = DateTime.Now;
+            Save();
+            return activity;
+        }
+
+
+       public Activity ChangeName(int id , string newName)
+        {
+            var activity = context.Activities.Find(id);
+            activity.Name = newName;
             Save();
             return activity;
         }

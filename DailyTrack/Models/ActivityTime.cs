@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace DailyTrack.Models
         public int ActivityTimeId { get; set; }
         [ForeignKey("Activity")]
         public int ActivityId { get; set; }
+        [JsonIgnore] 
         public virtual Activity Activity { get; set; }
 
         public DateTime? StartTime { get; set; }

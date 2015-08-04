@@ -12,6 +12,8 @@ namespace DailyTrack.Controllers
 {
     [RoutePrefix("api/folders/{folderId:int}/activities")]
 
+
+   // [RoutePrefix("api/folders/{folderId:int}/activityTimes")]
     public class ActivitiesApiController : ApiController
     {
         private IActivityRepository activityRepository;
@@ -37,6 +39,12 @@ namespace DailyTrack.Controllers
             return activityRepository.CompleteActivity(id);
         }
 
+        [HttpPost]
+        [Route("{id:int}/name")]
+        public Activity ChangeName(int id ,string newName)
+        {
+            return activityRepository.ChangeName( id,newName);
+        }
 
 
         [HttpPost]
@@ -60,6 +68,29 @@ namespace DailyTrack.Controllers
         {
             return activityRepository.UncompleteActivity(id);
         }
+
+      //  [HttpGet]
+       // [Route("")]
+       // public IEnumerable<ActivityTime> GetAllActivitityTimes(int id)
+       // {
+        //    return activityRepository
+         //       .GetActivityTimes()
+         //       .Where(activity => activity.Id == id);
+       // }
+        /*  [HttpGet]
+          [Route ('{id:int}')]
+
+          public JsonResponse<ActivityTime>  GetActivityTimes(int id)
+          {
+              return new JsonResponse<ActivityTime>(Request, () =>
+              {
+                  activityRepository.StartActivity(id);
+                  activityRepository.EndActivity(id);
+              });
+
+          } */
+
+
 
 
         [HttpPost]

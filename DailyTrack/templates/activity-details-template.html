@@ -10,28 +10,38 @@
                   <output type='text' class="form-control" data-bind="value:name" />
                  </div>
                 <div class="row">
-                    <div class="small-6 column">StartActivity:</div>
+                    <div class="small-6 column">Create Date:</div>
                   <div class="small-6 column" data-bind="text: createDate"></div>
                 </div>
                
             <div class="row">
                 <div class="small-2 columns" data-bind="click: $parent.fnStartActivity">
                     <span class="button tiny">Start</span>
+                    <div class="small-2 column ">Start Time</div>
+                    <div class="small-10 column" data-bind="click: $parent.fnGetActivityStartTimes"></div>
                 </div>
                 <div class="small-2 columns" data-bind="click: $parent.fnEndActivity">
                     <span class="button tiny">End</span>
-                </div>
+                    <div class="small-2 column">End Time</div>
+                    <div class="small-10 column " data-bind="click: $parent.fnGetActivityEndTimes"></div>
             </div>
 
-
+     
       </div>
+         
           <div class="row">
          <div data-bind="click: $parent.fnRemoveActivity">
             <span class="button tiny">Delete</span>
           </div>
         </div>
        
-    </div>
+ </div>
+        <div class="row">
+            <input class="small-10 columns" type="text" placeholder="New ActivityName"  data-bind="text-input: ActivityEditedText" />
+            <div class="small-2 columns" data-bind="click: $parent.fnEditActivityName">
+                <span class="button tiny">Edit</span>
+             </div>
+            </div>
 
     
 </div>

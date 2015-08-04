@@ -12,14 +12,23 @@ function Activity(data) {
     var self = this;
     self.id = data.id || 0;
     self.Completed = ko.observable(data.completed || false);
-    self.name = data.name || '';
+    self.name = ko.observable(data.name);
     self.createDate = data.createDate || '';
+    self.ActivityTimes = ko.observableArray(Activity.ActivityTimes || []);
     self.IsSelectedActivity = ko.observable(false);
     self.SelectedActivityCssClass = ko.computed(function () {
         return self.IsSelectedActivity() ? 'activity-selected' : 'activity-not-selected';
     })
 }
 
+
+function ActivityTimes(data) {
+    var self = this;
+    self.id = data.id || 0;
+    self.startTime = data.startTime || '';
+    self.endTime = data.endTime || '';
+
+}
 
 function ActivitiesViewModel() {
     var self = this;
