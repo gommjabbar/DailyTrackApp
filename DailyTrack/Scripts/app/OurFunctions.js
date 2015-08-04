@@ -74,6 +74,7 @@ function ActivitiesViewModel() {
                name: name
            }
        }).done(function (data) {
+           console.log(data.result)
            self.ActivityChange(self.ActivityChange() + 1);
            self.NewActivityText("");
        })

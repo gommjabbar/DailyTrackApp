@@ -1,5 +1,6 @@
 ﻿using DailyTrack.Models;
 using DailyTrack.Repos;
+using DailyTrack.Response;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -63,14 +64,17 @@ namespace DailyTrack.Controllers
 
         [HttpPost]
         [Route("")]
-        public Activity InsertActivity(int folderId, Activity activity)
+        public JsonResponse<Activity> InsertActivity(int folderId, Activity activity)
         {
-            if (activity == null)
-                throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.BadRequest));
+            return new JsonResponse<Activity>(Request, () =>
+            {
+                if (activity == null)
+                    throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.BadRequest));
 
-            activityRepository.InsertActivity(activity);
-            activityRepository.Save();
-            return activity;
+                activityRepository.InsertActivity(activity);
+                activityRepository.Save();
+                return activity;
+            });
         }
 
         [HttpDelete]
